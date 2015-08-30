@@ -9,12 +9,12 @@ import javax.persistence.*;
 @MappedSuperclass
 public abstract class BaseEntity {
 
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
     @Version
     @Column(name = "version")
-    private Integer version;
+    private Integer version;*/
 }

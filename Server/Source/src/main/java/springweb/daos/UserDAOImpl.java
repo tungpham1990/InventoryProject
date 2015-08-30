@@ -21,7 +21,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
     public User findByUserName(String username) {
 
         TypedQuery<User> query = entityManager.
-                    createQuery("SELECT u FROM User u WHERE u.username = ?1", User.class);
+                    createQuery("SELECT u FROM User u WHERE u.UserName = ?1", User.class);
         query.setParameter(1, username);
 
         return (User) query.getSingleResult();

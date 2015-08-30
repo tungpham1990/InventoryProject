@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import springweb.entities.User;
 import springweb.services.UserService;
@@ -27,8 +28,15 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public ModelAndView index(ModelMap model) {
+    @RequestMapping(value = "/json", method = RequestMethod.GET, produces={"application/json"})
+    public @ResponseBody User index(ModelMap model) {
+        User user = userService.findByUserName("admin");
+        return user;
+    }
+    
+    
+    @RequestMapping(value = "/user", method = RequestMethod.GET, produces={"application/json"})
+    public ModelAndView json(ModelMap model) {
         User user = userService.findByUserName("admin");
         ModelAndView mv = new ModelAndView("admin/user/list");
         mv.addObject("user", user);

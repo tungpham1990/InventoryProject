@@ -2,6 +2,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div>
-<h1>Hello ${user.username} - User Management</h1>
+<h1>Hello ${user.getUserName()} - User Management</h1>
 
 </div>
