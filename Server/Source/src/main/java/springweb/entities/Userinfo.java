@@ -2,70 +2,52 @@ package springweb.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 
 /**
- * The persistent class for the userinfo database table.
+ * The persistent class for the user_info database table.
  * 
  */
 @Entity
-@Table(name="userinfo")
-@NamedQuery(name="Userinfo.findAll", query="SELECT u FROM Userinfo u")
-public class Userinfo extends BaseEntity implements Serializable {
+@Table(name="user_info")
+@NamedQuery(name="UserInfo.findAll", query="SELECT u FROM UserInfo u")
+public class UserInfo extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="UserId")
-	private long userId;
+	@Column(name="user_info_id")
+	private long userInfoId;
 
-	@Column(name="CMND")
 	private Object cmnd;
 
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
-	private Object createUser;
-
-	@Column(name="Description")
 	private Object description;
 
-	@Column(name="Email")
 	private Object email;
 
-	@Column(name="Enabled")
-	private short enabled;
+	private boolean enabled;
 
-	@Column(name="Password")
-	private String password;
-
-	@Column(name="Phone")
 	private Object phone;
 
-	@Column(name="RoleDescription")
-	private Object roleDescription;
+	@Column(name="role_info")
+	private Object roleInfo;
 
-	@Column(name="UpdateDate")
-	private Object updateDate;
+	
+	@Column(name="user_info_code")
+	private Object userInfoCode;
 
-	@Column(name="UpdateUser")
-	private Object updateUser;
+	@Column(name="user_info_name")
+	private Object userInfoName;
 
-	@Column(name="UserCode")
-	private Object userCode;
-
-	@Column(name="UserName")
-	private Object userName;
-
-	public Userinfo() {
+	public UserInfo() {
 	}
 
-	public long getUserId() {
-		return this.userId;
+	public long getUserInfoId() {
+		return this.userInfoId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setUserInfoId(long userInfoId) {
+		this.userInfoId = userInfoId;
 	}
 
 	public Object getCmnd() {
@@ -76,21 +58,7 @@ public class Userinfo extends BaseEntity implements Serializable {
 		this.cmnd = cmnd;
 	}
 
-	public Object getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
+	
 
 	public Object getDescription() {
 		return this.description;
@@ -108,20 +76,12 @@ public class Userinfo extends BaseEntity implements Serializable {
 		this.email = email;
 	}
 
-	public short getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(short enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public Object getPhone() {
@@ -132,44 +92,29 @@ public class Userinfo extends BaseEntity implements Serializable {
 		this.phone = phone;
 	}
 
-	public Object getRoleDescription() {
-		return this.roleDescription;
+	public Object getRoleInfo() {
+		return this.roleInfo;
 	}
 
-	public void setRoleDescription(Object roleDescription) {
-		this.roleDescription = roleDescription;
+	public void setRoleInfo(Object roleInfo) {
+		this.roleInfo = roleInfo;
 	}
 
-	public Object getUpdateDate() {
-		return this.updateDate;
+	
+	public Object getUserInfoCode() {
+		return this.userInfoCode;
 	}
 
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
+	public void setUserInfoCode(Object userInfoCode) {
+		this.userInfoCode = userInfoCode;
 	}
 
-	public Object getUpdateUser() {
-		return this.updateUser;
+	public Object getUserInfoName() {
+		return this.userInfoName;
 	}
 
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
-	}
-
-	public Object getUserCode() {
-		return this.userCode;
-	}
-
-	public void setUserCode(Object userCode) {
-		this.userCode = userCode;
-	}
-
-	public Object getUserName() {
-		return this.userName;
-	}
-
-	public void setUserName(Object userName) {
-		this.userName = userName;
+	public void setUserInfoName(Object userInfoName) {
+		this.userInfoName = userInfoName;
 	}
 
 }
