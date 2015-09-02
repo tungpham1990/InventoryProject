@@ -2,6 +2,7 @@ package springweb.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 
 /**
@@ -15,39 +16,33 @@ public class Customer extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="CustomerId")
+	@Column(name="customer_id")
 	private long customerId;
 
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
+	@Column(name="create_user")
 	private Object createUser;
 
-	@Column(name="CustomerCode")
+	@Column(name="created_date")
+	private Timestamp createdDate;
+
+	@Column(name="customer_code")
 	private Object customerCode;
 
-	@Column(name="CustomerName")
+	@Column(name="customer_name")
 	private Object customerName;
 
-	@Column(name="CustomerShortName")
+	@Column(name="customer_short_name")
 	private Object customerShortName;
 
-	@Column(name="Description")
 	private Object description;
 
-	@Column(name="Enabled")
-	private short enabled;
+	private boolean enabled;
 
-	@Column(name="IsPersonal")
-	private short isPersonal;
+	@Column(name="is_personal")
+	private boolean isPersonal;
 
-	@Column(name="UpdateDate")
-	private Object updateDate;
 
-	@Column(name="UpdateUser")
-	private Object updateUser;
-
+	
 	public Customer() {
 	}
 
@@ -59,21 +54,7 @@ public class Customer extends BaseEntity implements Serializable {
 		this.customerId = customerId;
 	}
 
-	public Object getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
+	
 
 	public Object getCustomerCode() {
 		return this.customerCode;
@@ -107,36 +88,21 @@ public class Customer extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public short getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(short enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public short getIsPersonal() {
+	public boolean getIsPersonal() {
 		return this.isPersonal;
 	}
 
-	public void setIsPersonal(short isPersonal) {
+	public void setIsPersonal(boolean isPersonal) {
 		this.isPersonal = isPersonal;
 	}
 
-	public Object getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public Object getUpdateUser() {
-		return this.updateUser;
-	}
-
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
-	}
 
 }

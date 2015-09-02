@@ -2,6 +2,7 @@ package springweb.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 
 /**
@@ -15,35 +16,22 @@ public class Supplier extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="SupplierId")
+	@Column(name="supplier_id")
 	private long supplierId;
 
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
-	private Object createUser;
-
-	@Column(name="Description")
 	private Object description;
 
-	@Column(name="Enabled")
-	private short enabled;
+	private boolean enabled;
 
-	@Column(name="SupplierCode")
+	@Column(name="supplier_code")
 	private Object supplierCode;
 
-	@Column(name="SupplierName")
+	@Column(name="supplier_name")
 	private Object supplierName;
 
-	@Column(name="SupplierShortName")
+	@Column(name="supplier_short_name")
 	private Object supplierShortName;
 
-	@Column(name="UpdateDate")
-	private Object updateDate;
-
-	@Column(name="UpdateUser")
-	private Object updateUser;
 
 	public Supplier() {
 	}
@@ -56,21 +44,7 @@ public class Supplier extends BaseEntity implements Serializable {
 		this.supplierId = supplierId;
 	}
 
-	public Object getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
+	
 
 	public Object getDescription() {
 		return this.description;
@@ -80,11 +54,11 @@ public class Supplier extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public short getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(short enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -110,22 +84,6 @@ public class Supplier extends BaseEntity implements Serializable {
 
 	public void setSupplierShortName(Object supplierShortName) {
 		this.supplierShortName = supplierShortName;
-	}
-
-	public Object getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public Object getUpdateUser() {
-		return this.updateUser;
-	}
-
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
 	}
 
 }

@@ -1,220 +1,252 @@
 package springweb.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.math.BigDecimal;
+import java.sql.Timestamp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
-/**
- * The persistent class for the transactionmaster database table.
- * 
- */
 @Entity
-@Table(name="transactionmaster")
-@NamedQuery(name="Transactionmaster.findAll", query="SELECT t FROM Transactionmaster t")
-public class Transactionmaster extends BaseEntity implements Serializable {
+@Table(name="transaction_master")
+@NamedQuery(name="TransactionMaster.findAll", query="SELECT c FROM TransactionMaster c")
+public class TransactionMaster extends BaseEntity implements Serializable {
+
+	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
+
 	@Id
-	@Column(name="TransactionMasterId")
+	@Column(name="transaction_master_id")
 	private long transactionMasterId;
-
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
-	private Object createUser;
-
-	@Column(name="CustomerId")
-	private long customerId;
-
-	@Column(name="Deliver")
-	private Object deliver;
-
-	@Column(name="DeliveredWarehosuseId")
-	private long deliveredWarehosuseId;
-
-	@Column(name="PercentCharges")
-	private BigDecimal percentCharges;
-
-	@Column(name="ReceivedWarehouseId")
-	private long receivedWarehouseId;
-
-	@Column(name="Receiver")
-	private Object receiver;
-
-	@Column(name="SupplierId")
-	private long supplierId;
-
-	@Column(name="TotalAmount")
-	private BigDecimal totalAmount;
-
-	@Column(name="TotalCharges")
-	private BigDecimal totalCharges;
-
-	@Column(name="TotalPrice")
-	private BigDecimal totalPrice;
-
-	@Column(name="TransactionCode")
-	private Object transactionCode;
-
-	@Column(name="TransactionDate")
-	private Object transactionDate;
-
-	@Column(name="TransactionTypeId")
-	private long transactionTypeId;
-
-	@Column(name="UpdateDate")
-	private Object updateDate;
-
-	@Column(name="UpdateUser")
-	private Object updateUser;
-
-	public Transactionmaster() {
-	}
-
+	
+	
+	@Column(name="transaction_code")
+	private String transactionCode;
+	
+	
+	@Column(name="transaction_type_id")
+	private String transaction_type_id;
+	
+	
+	@Column(name="transaction_date")
+	private Timestamp transactionDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "received_warehouse_id", nullable = true)
+	private Warehouse receivedWarehouse;
+	
+	@ManyToOne
+	@JoinColumn(name = "delivered_warehosuse_id", nullable = true)
+	private Warehouse deliveredWarehouse;
+	
+	
+	@Column(name="receiver")
+	private String receiver;
+	
+	
+	
+	@Column(name="deliver")
+	private String deliver;
+	
+	@ManyToOne
+	@JoinColumn(name = "customer_id", nullable = true)
+	private Customer customer;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "supplier_id", nullable = true)
+	private Supplier supplier;
+	
+	
+	@Column(name="total_price")
+	private float totalPrice;
+	
+	
+	@Column(name="percent_charges")
+	private float percentCharges;
+	
+	
+	@Column(name="total_charges")
+	private float totalCharges;
+	
+	
 	public long getTransactionMasterId() {
-		return this.transactionMasterId;
+		return transactionMasterId;
 	}
+
 
 	public void setTransactionMasterId(long transactionMasterId) {
 		this.transactionMasterId = transactionMasterId;
 	}
 
-	public Object getCreatedDate() {
-		return this.createdDate;
+
+	public String getTransactionCode() {
+		return transactionCode;
 	}
 
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
 
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
-
-	public long getCustomerId() {
-		return this.customerId;
-	}
-
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
-	}
-
-	public Object getDeliver() {
-		return this.deliver;
-	}
-
-	public void setDeliver(Object deliver) {
-		this.deliver = deliver;
-	}
-
-	public long getDeliveredWarehosuseId() {
-		return this.deliveredWarehosuseId;
-	}
-
-	public void setDeliveredWarehosuseId(long deliveredWarehosuseId) {
-		this.deliveredWarehosuseId = deliveredWarehosuseId;
-	}
-
-	public BigDecimal getPercentCharges() {
-		return this.percentCharges;
-	}
-
-	public void setPercentCharges(BigDecimal percentCharges) {
-		this.percentCharges = percentCharges;
-	}
-
-	public long getReceivedWarehouseId() {
-		return this.receivedWarehouseId;
-	}
-
-	public void setReceivedWarehouseId(long receivedWarehouseId) {
-		this.receivedWarehouseId = receivedWarehouseId;
-	}
-
-	public Object getReceiver() {
-		return this.receiver;
-	}
-
-	public void setReceiver(Object receiver) {
-		this.receiver = receiver;
-	}
-
-	public long getSupplierId() {
-		return this.supplierId;
-	}
-
-	public void setSupplierId(long supplierId) {
-		this.supplierId = supplierId;
-	}
-
-	public BigDecimal getTotalAmount() {
-		return this.totalAmount;
-	}
-
-	public void setTotalAmount(BigDecimal totalAmount) {
-		this.totalAmount = totalAmount;
-	}
-
-	public BigDecimal getTotalCharges() {
-		return this.totalCharges;
-	}
-
-	public void setTotalCharges(BigDecimal totalCharges) {
-		this.totalCharges = totalCharges;
-	}
-
-	public BigDecimal getTotalPrice() {
-		return this.totalPrice;
-	}
-
-	public void setTotalPrice(BigDecimal totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-
-	public Object getTransactionCode() {
-		return this.transactionCode;
-	}
-
-	public void setTransactionCode(Object transactionCode) {
+	public void setTransactionCode(String transactionCode) {
 		this.transactionCode = transactionCode;
 	}
 
-	public Object getTransactionDate() {
-		return this.transactionDate;
+
+	public String getTransaction_type_id() {
+		return transaction_type_id;
 	}
 
-	public void setTransactionDate(Object transactionDate) {
+
+	public void setTransaction_type_id(String transaction_type_id) {
+		this.transaction_type_id = transaction_type_id;
+	}
+
+
+	public Timestamp getTransactionDate() {
+		return transactionDate;
+	}
+
+
+	public void setTransactionDate(Timestamp transactionDate) {
 		this.transactionDate = transactionDate;
 	}
 
-	public long getTransactionTypeId() {
-		return this.transactionTypeId;
+
+	public Warehouse getReceivedWarehouse() {
+		return receivedWarehouse;
 	}
 
-	public void setTransactionTypeId(long transactionTypeId) {
-		this.transactionTypeId = transactionTypeId;
+
+	public void setReceivedWarehouse(Warehouse receivedWarehouse) {
+		this.receivedWarehouse = receivedWarehouse;
 	}
 
-	public Object getUpdateDate() {
-		return this.updateDate;
+
+	public Warehouse getDeliveredWarehouse() {
+		return deliveredWarehouse;
 	}
 
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
+
+	public void setDeliveredWarehouse(Warehouse deliveredWarehosuse) {
+		this.deliveredWarehouse = deliveredWarehosuse;
 	}
 
-	public Object getUpdateUser() {
-		return this.updateUser;
+
+	public String getReceiver() {
+		return receiver;
 	}
 
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
+
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
 	}
 
+
+	public String getDeliver() {
+		return deliver;
+	}
+
+
+	public void setDeliver(String deliver) {
+		this.deliver = deliver;
+	}
+
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
+
+	public float getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+
+	public float getPercentCharges() {
+		return percentCharges;
+	}
+
+
+	public void setPercentCharges(float percentCharges) {
+		this.percentCharges = percentCharges;
+	}
+
+
+	public float getTotalCharges() {
+		return totalCharges;
+	}
+
+
+	public void setTotalCharges(float totalCharges) {
+		this.totalCharges = totalCharges;
+	}
+
+
+	public float getTotalAmount() {
+		return totalAmount;
+	}
+
+
+	public void setTotalAmount(float totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+
+	public String getDescription() {
+		return Description;
+	}
+
+
+	public void setDescription(String description) {
+		Description = description;
+	}
+
+
+	@Column(name="total_amount")
+	private float totalAmount;
+	
+	
+	@Column(name="enabled")
+	private boolean enabled;
+	
+	
+	@Column(name="Description")
+	private String Description;
+	
 }

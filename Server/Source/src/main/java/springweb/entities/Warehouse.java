@@ -2,6 +2,8 @@ package springweb.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.List;
 
 
 /**
@@ -15,36 +17,38 @@ public class Warehouse extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="WarehouseId")
+	@Column(name="warehouse_id")
 	private long warehouseId;
 
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
-	private Object createUser;
-
-	@Column(name="Description")
 	private Object description;
 
-	@Column(name="Enabled")
-	private short enabled;
+	private boolean enabled;
 
-	@Column(name="UpdateDate")
-	private Object updateDate;
-
-	@Column(name="UpdateUser")
-	private Object updateUser;
-
-	@Column(name="WarehouseCode")
+	@Column(name="warehouse_code")
 	private Object warehouseCode;
 
-	@Column(name="WarehouseName")
+	@Column(name="warehouse_name")
 	private Object warehouseName;
 
-	@Column(name="WarehouseParentId")
+	@Column(name="warehouse_parent_id")
 	private long warehouseParentId;
 
+	public List<TransactionMaster> getDeliveredTransactionMasters() {
+		return deliveredTransactionMasters;
+	}
+
+	public void setDeliveredTransactionMasters(List<TransactionMaster> deliveredTransactionMasters) {
+		this.deliveredTransactionMasters = deliveredTransactionMasters;
+	}
+
+	//bi-directional many-to-one association to TransactionMaster
+	@OneToMany(mappedBy="deliveredWarehouse")
+	private List<TransactionMaster> deliveredTransactionMasters;
+
+	//bi-directional many-to-one association to TransactionMaster
+	@OneToMany(mappedBy="receivedWarehouse")
+	private List<TransactionMaster> receivedTransactionMasters;
+		
 	public Warehouse() {
 	}
 
@@ -56,21 +60,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 		this.warehouseId = warehouseId;
 	}
 
-	public Object getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
+	
 
 	public Object getDescription() {
 		return this.description;
@@ -80,29 +70,14 @@ public class Warehouse extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public short getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(short enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public Object getUpdateDate() {
-		return this.updateDate;
-	}
-
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
-	}
-
-	public Object getUpdateUser() {
-		return this.updateUser;
-	}
-
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
-	}
 
 	public Object getWarehouseCode() {
 		return this.warehouseCode;
@@ -126,6 +101,50 @@ public class Warehouse extends BaseEntity implements Serializable {
 
 	public void setWarehouseParentId(long warehouseParentId) {
 		this.warehouseParentId = warehouseParentId;
+	}
+
+	public List<TransactionMaster> getTransactionMasters() {
+		return this.deliveredTransactionMasters;
+	}
+
+	public void setTransactionMasters(List<TransactionMaster> transactionMasters) {
+		this.deliveredTransactionMasters = transactionMasters;
+	}
+
+	public TransactionMaster addTransactionMaster(TransactionMaster transactionMaster) {
+		getTransactionMasters().add(transactionMaster);
+		transactionMaster.setDeliveredWarehouse(this);
+
+		return transactionMaster;
+	}
+
+	public TransactionMaster removeDeliveredTransactionMaster(TransactionMaster transactionMaster) {
+		getDeliveredTransactionMasters().remove(transactionMaster);
+		transactionMaster.setDeliveredWarehouse(null);
+
+		return transactionMaster;
+	}
+	
+	public List<TransactionMaster> getReceivedTransactionMasters() {
+		return this.receivedTransactionMasters;
+	}
+
+	public void setReceivedTransactionMasters(List<TransactionMaster> transactionMasters) {
+		this.receivedTransactionMasters = transactionMasters;
+	}
+
+	public TransactionMaster addReceivedTransactionMaster(TransactionMaster transactionMaster) {
+		getTransactionMasters().add(transactionMaster);
+		transactionMaster.setReceivedWarehouse(this);
+
+		return transactionMaster;
+	}
+
+	public TransactionMaster removeReceivedTransactionMaster(TransactionMaster transactionMaster) {
+		getTransactionMasters().remove(transactionMaster);
+		transactionMaster.setReceivedWarehouse(null);
+
+		return transactionMaster;
 	}
 
 }

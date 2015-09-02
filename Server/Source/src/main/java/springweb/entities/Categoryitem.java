@@ -2,59 +2,51 @@ package springweb.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.List;
 
 
 /**
- * The persistent class for the categoryitem database table.
+ * The persistent class for the category_item database table.
  * 
  */
 @Entity
-@Table(name="categoryitem")
-@NamedQuery(name="Categoryitem.findAll", query="SELECT c FROM Categoryitem c")
-public class Categoryitem extends BaseEntity implements Serializable {
+@Table(name="category_item")
+@NamedQuery(name="CategoryItem.findAll", query="SELECT c FROM CategoryItem c")
+public class CategoryItem extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="CategoryItemId")
+	@Column(name="category_item_id")
 	private long categoryItemId;
 
-	@Column(name="CategoryItemCode")
+	@Column(name="category_item_code")
 	private Object categoryItemCode;
 
-	@Column(name="CategoryItemName")
+	@Column(name="category_item_name")
 	private Object categoryItemName;
 
-	@Column(name="CategoryItemParentId")
+	@Column(name="category_item_parent_id")
 	private long categoryItemParentId;
 
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
-	private Object createUser;
-
-	@Column(name="Description")
 	private Object description;
 
-	@Column(name="Enabled")
-	private short enabled;
+	private boolean enabled;
 
-	@Column(name="Features")
 	private Object features;
 
-	@Column(name="Specifications")
+	@Column(name="node_level")
+	private int nodeLevel;
+
 	private Object specifications;
 
-	@Column(name="UnitId")
-	private long unitId;
+	
 
-	@Column(name="UpdateDate")
-	private Object updateDate;
+	//bi-directional many-to-one association to Item
+	@OneToMany(mappedBy="categoryItem")
+	private List<Item> items;
 
-	@Column(name="UpdateUser")
-	private Object updateUser;
-
-	public Categoryitem() {
+	public CategoryItem() {
 	}
 
 	public long getCategoryItemId() {
@@ -89,22 +81,6 @@ public class Categoryitem extends BaseEntity implements Serializable {
 		this.categoryItemParentId = categoryItemParentId;
 	}
 
-	public Object getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
-
 	public Object getDescription() {
 		return this.description;
 	}
@@ -113,11 +89,11 @@ public class Categoryitem extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public short getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(short enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -129,6 +105,14 @@ public class Categoryitem extends BaseEntity implements Serializable {
 		this.features = features;
 	}
 
+	public int getNodeLevel() {
+		return this.nodeLevel;
+	}
+
+	public void setNodeLevel(int nodeLevel) {
+		this.nodeLevel = nodeLevel;
+	}
+
 	public Object getSpecifications() {
 		return this.specifications;
 	}
@@ -137,28 +121,28 @@ public class Categoryitem extends BaseEntity implements Serializable {
 		this.specifications = specifications;
 	}
 
-	public long getUnitId() {
-		return this.unitId;
+	
+
+	public List<Item> getItems() {
+		return this.items;
 	}
 
-	public void setUnitId(long unitId) {
-		this.unitId = unitId;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
-	public Object getUpdateDate() {
-		return this.updateDate;
+	public Item addItem(Item item) {
+		getItems().add(item);
+		item.setCategoryItem(this);
+
+		return item;
 	}
 
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
-	}
+	public Item removeItem(Item item) {
+		getItems().remove(item);
+		item.setCategoryItem(null);
 
-	public Object getUpdateUser() {
-		return this.updateUser;
-	}
-
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
+		return item;
 	}
 
 }

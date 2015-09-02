@@ -2,18 +2,16 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              version="1.0">
     <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL" >
-        <class>springweb.entities.User</class>
-        <class>springweb.entities.Categoryitem</class>
-        <class>springweb.entities.Company</class>
-        <class>springweb.entities.Customer</class>
-        <class>springweb.entities.Item</class>
-        <class>springweb.entities.Supplier</class>
-        <class>springweb.entities.Transactiondetail</class>
-        <class>springweb.entities.Transactionmaster</class>
-        <class>springweb.entities.Transactiontype</class>
-        <class>springweb.entities.Unit</class>
-        <class>springweb.entities.Userinfo</class>
-        <class>springweb.entities.Usertemp</class>
-        <class>springweb.entities.Warehouse</class>
+    	<class>springweb.entities.CategoryItem</class>
+    	<class>springweb.entities.Company</class>
+    	<class>springweb.entities.Customer</class>
+    	<class>springweb.entities.Item</class>
+    	<class>springweb.entities.Supplier</class>
+    	<class>springweb.entities.TransactionDetail</class>
+    	<class>springweb.entities.TransactionMaster</class>
+    	<class>springweb.entities.TransactionType</class>
+    	<class>springweb.entities.Unit</class>
+    	<class>springweb.entities.UserInfo</class>
+    	<class>springweb.entities.Warehouse</class>
     </persistence-unit>
 </persistence>

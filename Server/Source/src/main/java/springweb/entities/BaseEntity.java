@@ -1,5 +1,7 @@
 package springweb.entities;
 
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 
 /**
@@ -9,12 +11,47 @@ import javax.persistence.*;
 @MappedSuperclass
 public abstract class BaseEntity {
 
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+	@Column(name="create_user")
+	private Object createUser;
 
-    @Version
-    @Column(name = "version")
-    private Integer version;*/
+	@Column(name="created_date")
+	private Timestamp createdDate;
+	
+	@Column(name="update_date")
+	private Timestamp updateDate;
+
+	@Column(name="update_user")
+	private Object updateUser;
+	
+	public Object getCreateUser() {
+		return createUser;
+	}
+
+	public void setCreateUser(Object createUser) {
+		this.createUser = createUser;
+	}
+
+	public Timestamp getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Timestamp createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Timestamp getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Timestamp updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public Object getUpdateUser() {
+		return updateUser;
+	}
+
+	public void setUpdateUser(Object updateUser) {
+		this.updateUser = updateUser;
+	}
 }

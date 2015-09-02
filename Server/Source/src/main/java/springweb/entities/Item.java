@@ -1,120 +1,60 @@
 package springweb.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
-/**
- * The persistent class for the item database table.
- * 
- */
 @Entity
 @Table(name="item")
-@NamedQuery(name="Item.findAll", query="SELECT i FROM Item i")
+@NamedQuery(name="Item.findAll", query="SELECT c FROM Item c")
 public class Item extends BaseEntity implements Serializable {
+	
+	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="ItemId")
-	private long itemId;
-
-	@Column(name="CategoryItemsId")
-	private long categoryItemsId;
-
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
-	private Object createUser;
-
-	@Column(name="Description")
-	private Object description;
-
-	@Column(name="Enabled")
-	private short enabled;
-
-	@Column(name="Features")
-	private Object features;
-
-	@Column(name="ItemCode")
+	@Column(name="item_id")
+	private Long itemId;
+	
+	@Column(name="item_code")
 	private Object itemCode;
-
-	@Column(name="ItemName")
+	
+	@Column(name="item_name")
 	private Object itemName;
-
-	@Column(name="Specifications")
+	
+	@Column(name="features")
+	private Object features;
+	
+	@Column(name="specifications")
 	private Object specifications;
-
-	@Column(name="UnitId")
-	private long unitId;
-
-	@Column(name="UpdateDate")
-	private Object updateDate;
-
-	@Column(name="UpdateUser")
-	private Object updateUser;
-
-	public Item() {
+	
+	@ManyToOne
+	@JoinColumn(name = "unit_id", nullable = true)
+	private Unit unit;
+	
+	@ManyToOne
+	@JoinColumn(name = "category_item_id", nullable = true)
+	private CategoryItem categoryItem;
+	
+	public Long getItemId() {
+		return itemId;
 	}
 
-	public long getItemId() {
-		return this.itemId;
-	}
-
-	public void setItemId(long itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 
-	public long getCategoryItemsId() {
-		return this.categoryItemsId;
-	}
-
-	public void setCategoryItemsId(long categoryItemsId) {
-		this.categoryItemsId = categoryItemsId;
-	}
-
-	public Object getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
-
-	public Object getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(Object description) {
-		this.description = description;
-	}
-
-	public short getEnabled() {
-		return this.enabled;
-	}
-
-	public void setEnabled(short enabled) {
-		this.enabled = enabled;
-	}
-
-	public Object getFeatures() {
-		return this.features;
-	}
-
-	public void setFeatures(Object features) {
-		this.features = features;
-	}
-
 	public Object getItemCode() {
-		return this.itemCode;
+		return itemCode;
 	}
 
 	public void setItemCode(Object itemCode) {
@@ -122,43 +62,68 @@ public class Item extends BaseEntity implements Serializable {
 	}
 
 	public Object getItemName() {
-		return this.itemName;
+		return itemName;
 	}
 
 	public void setItemName(Object itemName) {
 		this.itemName = itemName;
 	}
 
+	public Object getFeatures() {
+		return features;
+	}
+
+	public void setFeatures(Object features) {
+		this.features = features;
+	}
+
 	public Object getSpecifications() {
-		return this.specifications;
+		return specifications;
 	}
 
 	public void setSpecifications(Object specifications) {
 		this.specifications = specifications;
 	}
 
-	public long getUnitId() {
-		return this.unitId;
+	public Object getUnit() {
+		return unit;
 	}
 
-	public void setUnitId(long unitId) {
-		this.unitId = unitId;
+	public void setUnit(Unit unit) {
+		this.unit = unit;
 	}
 
-	public Object getUpdateDate() {
-		return this.updateDate;
+	public CategoryItem getCategoryItem() {
+		return categoryItem;
 	}
 
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
+	public void setCategoryItem(CategoryItem categoryItem) {
+		this.categoryItem = categoryItem;
 	}
 
-	public Object getUpdateUser() {
-		return this.updateUser;
+	public boolean isEnabled() {
+		return enabled;
 	}
 
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
+	public Object getDescription() {
+		return description;
+	}
+
+	public void setDescription(Object description) {
+		this.description = description;
+	}
+
+	
+
+	@Column(name="enabled")
+	private boolean enabled;
+	
+	@Column(name="description")
+	private Object description;
+
+	
 }

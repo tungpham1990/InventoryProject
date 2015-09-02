@@ -2,6 +2,8 @@ package springweb.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.List;
 
 
 /**
@@ -15,32 +17,25 @@ public class Unit extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="UnitId")
+	@Column(name="unit_id")
 	private long unitId;
 
-	@Column(name="CreatedDate")
-	private Object createdDate;
-
-	@Column(name="CreateUser")
-	private Object createUser;
-
-	@Column(name="Description")
+	
 	private Object description;
 
-	@Column(name="Enabled")
-	private short enabled;
+	private boolean enabled;
 
-	@Column(name="UnitCode")
+	@Column(name="unit_code")
 	private Object unitCode;
 
-	@Column(name="UnitName")
+	@Column(name="unit_name")
 	private Object unitName;
 
-	@Column(name="UpdateDate")
-	private Object updateDate;
+	
 
-	@Column(name="UpdateUser")
-	private Object updateUser;
+	//bi-directional many-to-one association to Item
+	@OneToMany(mappedBy="unit")
+	private List<Item> items;
 
 	public Unit() {
 	}
@@ -53,21 +48,7 @@ public class Unit extends BaseEntity implements Serializable {
 		this.unitId = unitId;
 	}
 
-	public Object getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Object createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Object getCreateUser() {
-		return this.createUser;
-	}
-
-	public void setCreateUser(Object createUser) {
-		this.createUser = createUser;
-	}
+	
 
 	public Object getDescription() {
 		return this.description;
@@ -77,11 +58,11 @@ public class Unit extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public short getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(short enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -101,20 +82,28 @@ public class Unit extends BaseEntity implements Serializable {
 		this.unitName = unitName;
 	}
 
-	public Object getUpdateDate() {
-		return this.updateDate;
+	
+
+	public List<Item> getItems() {
+		return this.items;
 	}
 
-	public void setUpdateDate(Object updateDate) {
-		this.updateDate = updateDate;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
-	public Object getUpdateUser() {
-		return this.updateUser;
+	public Item addItem(Item item) {
+		getItems().add(item);
+		item.setUnit(this);
+
+		return item;
 	}
 
-	public void setUpdateUser(Object updateUser) {
-		this.updateUser = updateUser;
+	public Item removeItem(Item item) {
+		getItems().remove(item);
+		item.setUnit(null);
+
+		return item;
 	}
 
 }
