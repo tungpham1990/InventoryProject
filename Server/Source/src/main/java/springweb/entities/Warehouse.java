@@ -20,15 +20,15 @@ public class Warehouse extends BaseEntity implements Serializable {
 	@Column(name="warehouse_id")
 	private long warehouseId;
 
-	private Object description;
+	private String description;
 
 	private boolean enabled;
 
 	@Column(name="warehouse_code")
-	private Object warehouseCode;
+	private String warehouseCode;
 
 	@Column(name="warehouse_name")
-	private Object warehouseName;
+	private String warehouseName;
 
 	@Column(name="warehouse_parent_id")
 	private long warehouseParentId;
@@ -62,11 +62,11 @@ public class Warehouse extends BaseEntity implements Serializable {
 
 	
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -79,19 +79,19 @@ public class Warehouse extends BaseEntity implements Serializable {
 	}
 
 
-	public Object getWarehouseCode() {
+	public String getWarehouseCode() {
 		return this.warehouseCode;
 	}
 
-	public void setWarehouseCode(Object warehouseCode) {
+	public void setWarehouseCode(String warehouseCode) {
 		this.warehouseCode = warehouseCode;
 	}
 
-	public Object getWarehouseName() {
+	public String getWarehouseName() {
 		return this.warehouseName;
 	}
 
-	public void setWarehouseName(Object warehouseName) {
+	public void setWarehouseName(String warehouseName) {
 		this.warehouseName = warehouseName;
 	}
 

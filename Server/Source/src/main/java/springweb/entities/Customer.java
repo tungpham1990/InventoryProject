@@ -19,22 +19,16 @@ public class Customer extends BaseEntity implements Serializable {
 	@Column(name="customer_id")
 	private long customerId;
 
-	@Column(name="create_user")
-	private Object createUser;
-
-	@Column(name="created_date")
-	private Timestamp createdDate;
-
 	@Column(name="customer_code")
-	private Object customerCode;
+	private String customerCode;
 
 	@Column(name="customer_name")
-	private Object customerName;
+	private String customerName;
 
 	@Column(name="customer_short_name")
-	private Object customerShortName;
+	private String customerShortName;
 
-	private Object description;
+	private String description;
 
 	private boolean enabled;
 
@@ -56,35 +50,35 @@ public class Customer extends BaseEntity implements Serializable {
 
 	
 
-	public Object getCustomerCode() {
+	public String getCustomerCode() {
 		return this.customerCode;
 	}
 
-	public void setCustomerCode(Object customerCode) {
+	public void setCustomerCode(String customerCode) {
 		this.customerCode = customerCode;
 	}
 
-	public Object getCustomerName() {
+	public String getCustomerName() {
 		return this.customerName;
 	}
 
-	public void setCustomerName(Object customerName) {
+	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
 
-	public Object getCustomerShortName() {
+	public String getCustomerShortName() {
 		return this.customerShortName;
 	}
 
-	public void setCustomerShortName(Object customerShortName) {
+	public void setCustomerShortName(String customerShortName) {
 		this.customerShortName = customerShortName;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

@@ -12,7 +12,7 @@ import javax.persistence.*;
 public abstract class BaseEntity {
 
 	@Column(name="create_user")
-	private Object createUser;
+	private String createUser;
 
 	@Column(name="created_date")
 	private Timestamp createdDate;
@@ -21,13 +21,13 @@ public abstract class BaseEntity {
 	private Timestamp updateDate;
 
 	@Column(name="update_user")
-	private Object updateUser;
+	private String updateUser;
 	
-	public Object getCreateUser() {
+	public String getCreateUser() {
 		return createUser;
 	}
 
-	public void setCreateUser(Object createUser) {
+	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
 	}
 
@@ -47,11 +47,11 @@ public abstract class BaseEntity {
 		this.updateDate = updateDate;
 	}
 
-	public Object getUpdateUser() {
+	public String getUpdateUser() {
 		return updateUser;
 	}
 
-	public void setUpdateUser(Object updateUser) {
+	public void setUpdateUser(String updateUser) {
 		this.updateUser = updateUser;
 	}
 }

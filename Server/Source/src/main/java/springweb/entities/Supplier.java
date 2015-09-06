@@ -19,18 +19,18 @@ public class Supplier extends BaseEntity implements Serializable {
 	@Column(name="supplier_id")
 	private long supplierId;
 
-	private Object description;
+	private String description;
 
 	private boolean enabled;
 
 	@Column(name="supplier_code")
-	private Object supplierCode;
+	private String supplierCode;
 
 	@Column(name="supplier_name")
-	private Object supplierName;
+	private String supplierName;
 
 	@Column(name="supplier_short_name")
-	private Object supplierShortName;
+	private String supplierShortName;
 
 
 	public Supplier() {
@@ -46,11 +46,11 @@ public class Supplier extends BaseEntity implements Serializable {
 
 	
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -62,27 +62,27 @@ public class Supplier extends BaseEntity implements Serializable {
 		this.enabled = enabled;
 	}
 
-	public Object getSupplierCode() {
+	public String getSupplierCode() {
 		return this.supplierCode;
 	}
 
-	public void setSupplierCode(Object supplierCode) {
+	public void setSupplierCode(String supplierCode) {
 		this.supplierCode = supplierCode;
 	}
 
-	public Object getSupplierName() {
+	public String getSupplierName() {
 		return this.supplierName;
 	}
 
-	public void setSupplierName(Object supplierName) {
+	public void setSupplierName(String supplierName) {
 		this.supplierName = supplierName;
 	}
 
-	public Object getSupplierShortName() {
+	public String getSupplierShortName() {
 		return this.supplierShortName;
 	}
 
-	public void setSupplierShortName(Object supplierShortName) {
+	public void setSupplierShortName(String supplierShortName) {
 		this.supplierShortName = supplierShortName;
 	}
 

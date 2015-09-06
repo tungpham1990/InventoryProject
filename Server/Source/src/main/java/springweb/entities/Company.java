@@ -20,19 +20,19 @@ public class Company extends BaseEntity implements Serializable {
 	private long companyId;
 
 	@Column(name="company_code")
-	private Object companyCode;
+	private String companyCode;
 
 	@Column(name="company_name")
-	private Object companyName;
+	private String companyName;
 
 	@Column(name="company_parent_id")
 	private long companyParentId;
 
 	@Column(name="company_short_name")
-	private Object companyShortName;
+	private String companyShortName;
 
 
-	private Object description;
+	private String description;
 
 	private boolean enabled;
 
@@ -51,19 +51,19 @@ public class Company extends BaseEntity implements Serializable {
 		this.companyId = companyId;
 	}
 
-	public Object getCompanyCode() {
+	public String getCompanyCode() {
 		return this.companyCode;
 	}
 
-	public void setCompanyCode(Object companyCode) {
+	public void setCompanyCode(String companyCode) {
 		this.companyCode = companyCode;
 	}
 
-	public Object getCompanyName() {
+	public String getCompanyName() {
 		return this.companyName;
 	}
 
-	public void setCompanyName(Object companyName) {
+	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
 
@@ -75,21 +75,21 @@ public class Company extends BaseEntity implements Serializable {
 		this.companyParentId = companyParentId;
 	}
 
-	public Object getCompanyShortName() {
+	public String getCompanyShortName() {
 		return this.companyShortName;
 	}
 
-	public void setCompanyShortName(Object companyShortName) {
+	public void setCompanyShortName(String companyShortName) {
 		this.companyShortName = companyShortName;
 	}
 
 	
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

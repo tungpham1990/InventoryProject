@@ -26,16 +26,16 @@ public class Item extends BaseEntity implements Serializable {
 	private Long itemId;
 	
 	@Column(name="item_code")
-	private Object itemCode;
+	private String itemCode;
 	
 	@Column(name="item_name")
-	private Object itemName;
+	private String itemName;
 	
 	@Column(name="features")
-	private Object features;
+	private String features;
 	
 	@Column(name="specifications")
-	private Object specifications;
+	private String specifications;
 	
 	@ManyToOne
 	@JoinColumn(name = "unit_id", nullable = true)
@@ -53,39 +53,39 @@ public class Item extends BaseEntity implements Serializable {
 		this.itemId = itemId;
 	}
 
-	public Object getItemCode() {
+	public String getItemCode() {
 		return itemCode;
 	}
 
-	public void setItemCode(Object itemCode) {
+	public void setItemCode(String itemCode) {
 		this.itemCode = itemCode;
 	}
 
-	public Object getItemName() {
+	public String getItemName() {
 		return itemName;
 	}
 
-	public void setItemName(Object itemName) {
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 
-	public Object getFeatures() {
+	public String getFeatures() {
 		return features;
 	}
 
-	public void setFeatures(Object features) {
+	public void setFeatures(String features) {
 		this.features = features;
 	}
 
-	public Object getSpecifications() {
+	public String getSpecifications() {
 		return specifications;
 	}
 
-	public void setSpecifications(Object specifications) {
+	public void setSpecifications(String specifications) {
 		this.specifications = specifications;
 	}
 
-	public Object getUnit() {
+	public Unit getUnit() {
 		return unit;
 	}
 
@@ -109,11 +109,11 @@ public class Item extends BaseEntity implements Serializable {
 		this.enabled = enabled;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -123,7 +123,7 @@ public class Item extends BaseEntity implements Serializable {
 	private boolean enabled;
 	
 	@Column(name="description")
-	private Object description;
+	private String description;
 
 	
 }

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import springweb.entities.User;
-import springweb.services.UserService;
+import springweb.entities.UserInfo;
+import springweb.services.UserInfoService;
 
 /**
  * Created by MinhPK on 7/30/15.
@@ -18,26 +18,26 @@ import springweb.services.UserService;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserInfoService userService;
 
-    public UserService getUserService() {
+    public UserInfoService getUserService() {
         return userService;
     }
 
-    public void setUserService(UserService userService) {
+    public void setUserService(UserInfoService userService) {
         this.userService = userService;
     }
 
     @RequestMapping(value = "/json", method = RequestMethod.GET, produces={"application/json"})
-    public @ResponseBody User index(ModelMap model) {
-        User user = userService.findByUserName("admin");
+    public @ResponseBody UserInfo index(ModelMap model) {
+        UserInfo user = userService.findByUserName("admin");
         return user;
     }
     
     
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces={"application/json"})
     public ModelAndView json(ModelMap model) {
-        User user = userService.findByUserName("admin");
+        UserInfo user = userService.findByUserName("admin");
         ModelAndView mv = new ModelAndView("admin/user/list");
         mv.addObject("user", user);
         return mv;

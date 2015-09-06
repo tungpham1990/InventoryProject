@@ -19,25 +19,25 @@ public class UserInfo extends BaseEntity implements Serializable {
 	@Column(name="user_info_id")
 	private long userInfoId;
 
-	private Object cmnd;
+	private String cmnd;
 
-	private Object description;
+	private String description;
 
-	private Object email;
+	private String email;
 
 	private boolean enabled;
 
-	private Object phone;
+	private String phone;
 
 	@Column(name="role_info")
-	private Object roleInfo;
+	private String roleInfo;
 
 	
 	@Column(name="user_info_code")
-	private Object userInfoCode;
+	private String userInfoCode;
 
 	@Column(name="user_info_name")
-	private Object userInfoName;
+	private String userInfoName;
 
 	public UserInfo() {
 	}
@@ -50,29 +50,29 @@ public class UserInfo extends BaseEntity implements Serializable {
 		this.userInfoId = userInfoId;
 	}
 
-	public Object getCmnd() {
+	public String getCmnd() {
 		return this.cmnd;
 	}
 
-	public void setCmnd(Object cmnd) {
+	public void setCmnd(String cmnd) {
 		this.cmnd = cmnd;
 	}
 
 	
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public Object getEmail() {
+	public String getEmail() {
 		return this.email;
 	}
 
-	public void setEmail(Object email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
@@ -84,36 +84,36 @@ public class UserInfo extends BaseEntity implements Serializable {
 		this.enabled = enabled;
 	}
 
-	public Object getPhone() {
+	public String getPhone() {
 		return this.phone;
 	}
 
-	public void setPhone(Object phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public Object getRoleInfo() {
+	public String getRoleInfo() {
 		return this.roleInfo;
 	}
 
-	public void setRoleInfo(Object roleInfo) {
+	public void setRoleInfo(String roleInfo) {
 		this.roleInfo = roleInfo;
 	}
 
 	
-	public Object getUserInfoCode() {
+	public String getUserInfoCode() {
 		return this.userInfoCode;
 	}
 
-	public void setUserInfoCode(Object userInfoCode) {
+	public void setUserInfoCode(String userInfoCode) {
 		this.userInfoCode = userInfoCode;
 	}
 
-	public Object getUserInfoName() {
+	public String getUserInfoName() {
 		return this.userInfoName;
 	}
 
-	public void setUserInfoName(Object userInfoName) {
+	public void setUserInfoName(String userInfoName) {
 		this.userInfoName = userInfoName;
 	}
 

@@ -21,15 +21,15 @@ public class Unit extends BaseEntity implements Serializable {
 	private long unitId;
 
 	
-	private Object description;
+	private String description;
 
 	private boolean enabled;
 
 	@Column(name="unit_code")
-	private Object unitCode;
+	private String unitCode;
 
 	@Column(name="unit_name")
-	private Object unitName;
+	private String unitName;
 
 	
 
@@ -50,11 +50,11 @@ public class Unit extends BaseEntity implements Serializable {
 
 	
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -66,19 +66,19 @@ public class Unit extends BaseEntity implements Serializable {
 		this.enabled = enabled;
 	}
 
-	public Object getUnitCode() {
+	public String getUnitCode() {
 		return this.unitCode;
 	}
 
-	public void setUnitCode(Object unitCode) {
+	public void setUnitCode(String unitCode) {
 		this.unitCode = unitCode;
 	}
 
-	public Object getUnitName() {
+	public String getUnitName() {
 		return this.unitName;
 	}
 
-	public void setUnitName(Object unitName) {
+	public void setUnitName(String unitName) {
 		this.unitName = unitName;
 	}
 

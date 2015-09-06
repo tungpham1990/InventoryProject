@@ -16,7 +16,8 @@ import javax.persistence.Table;
 @NamedQuery(name="TransactionMaster.findAll", query="SELECT c FROM TransactionMaster c")
 public class TransactionMaster extends BaseEntity implements Serializable {
 
-	
+
+
 	/**
 	 * 
 	 */
