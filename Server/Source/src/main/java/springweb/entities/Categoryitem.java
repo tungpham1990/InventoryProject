@@ -26,24 +26,24 @@ public class CategoryItem extends BaseEntity implements Serializable {
 	private long categoryItemId;
 
 	@Column(name="category_item_code")
-	private Object categoryItemCode;
+	private String categoryItemCode;
 
 	@Column(name="category_item_name")
-	private Object categoryItemName;
+	private String categoryItemName;
 
 	@Column(name="category_item_parent_id")
 	private long categoryItemParentId;
 
-	private Object description;
+	private String description;
 
 	private boolean enabled;
 
-	private Object features;
+	private String features;
 
 	@Column(name="node_level")
 	private int nodeLevel;
 
-	private Object specifications;
+	private String specifications;
 
 	
 
@@ -62,19 +62,19 @@ public class CategoryItem extends BaseEntity implements Serializable {
 		this.categoryItemId = categoryItemId;
 	}
 
-	public Object getCategoryItemCode() {
+	public String getCategoryItemCode() {
 		return this.categoryItemCode;
 	}
 
-	public void setCategoryItemCode(Object categoryItemCode) {
+	public void setCategoryItemCode(String categoryItemCode) {
 		this.categoryItemCode = categoryItemCode;
 	}
 
-	public Object getCategoryItemName() {
+	public String getCategoryItemName() {
 		return this.categoryItemName;
 	}
 
-	public void setCategoryItemName(Object categoryItemName) {
+	public void setCategoryItemName(String categoryItemName) {
 		this.categoryItemName = categoryItemName;
 	}
 
@@ -86,11 +86,11 @@ public class CategoryItem extends BaseEntity implements Serializable {
 		this.categoryItemParentId = categoryItemParentId;
 	}
 
-	public Object getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Object description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -102,11 +102,11 @@ public class CategoryItem extends BaseEntity implements Serializable {
 		this.enabled = enabled;
 	}
 
-	public Object getFeatures() {
+	public String getFeatures() {
 		return this.features;
 	}
 
-	public void setFeatures(Object features) {
+	public void setFeatures(String features) {
 		this.features = features;
 	}
 
@@ -118,11 +118,11 @@ public class CategoryItem extends BaseEntity implements Serializable {
 		this.nodeLevel = nodeLevel;
 	}
 
-	public Object getSpecifications() {
+	public String getSpecifications() {
 		return this.specifications;
 	}
 
-	public void setSpecifications(Object specifications) {
+	public void setSpecifications(String specifications) {
 		this.specifications = specifications;
 	}
 

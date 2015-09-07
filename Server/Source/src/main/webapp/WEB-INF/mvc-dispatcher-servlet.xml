@@ -103,10 +103,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
     <mvc:resources mapping="/layouts/**" location="/WEB-INF/layouts/" />
 
-    <bean id="userDAO" class="springweb.daos.UserInfoDAOImpl">
-    </bean>
+    <bean id="userInfoDAO" class="springweb.daos.UserInfoDAOImpl" />
 
-    <bean id="userService" class="springweb.services.UserInfoServiceImpl">
+    <bean id="userInfoService" class="springweb.services.UserInfoServiceImpl">
         <property name="userInfoDAO" ref="userInfoDAO" />
     </bean>
 	

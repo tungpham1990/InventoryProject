@@ -18,26 +18,26 @@ import springweb.services.UserInfoService;
 public class UserController {
 
     @Autowired
-    private UserInfoService userService;
+    private UserInfoService userInfoService;
 
     public UserInfoService getUserService() {
-        return userService;
+        return userInfoService;
     }
 
     public void setUserService(UserInfoService userService) {
-        this.userService = userService;
+        this.userInfoService = userService;
     }
 
     @RequestMapping(value = "/json", method = RequestMethod.GET, produces={"application/json"})
     public @ResponseBody UserInfo index(ModelMap model) {
-        UserInfo user = userService.findByUserName("admin");
+        UserInfo user = userInfoService.findByUserName("admin");
         return user;
     }
     
     
-    @RequestMapping(value = "/user", method = RequestMethod.GET, produces={"application/json"})
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ModelAndView json(ModelMap model) {
-        UserInfo user = userService.findByUserName("admin");
+        UserInfo user = userInfoService.findByUserName("admin");
         ModelAndView mv = new ModelAndView("admin/user/list");
         mv.addObject("user", user);
         return mv;
