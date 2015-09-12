@@ -30,8 +30,17 @@ public class Warehouse extends BaseEntity implements Serializable {
 	@Column(name="warehouse_name")
 	private String warehouseName;
 
-	@Column(name="warehouse_parent_id")
-	private long warehouseParentId;
+	@OneToOne
+	@JoinColumn(name = "warehouse_parent_id", nullable = true)
+	private Warehouse warehouseParent;
+
+	public Warehouse getWarehouseParent() {
+		return warehouseParent;
+	}
+
+	public void setWarehouseParent(Warehouse warehouseParent) {
+		this.warehouseParent = warehouseParent;
+	}
 
 	public List<TransactionMaster> getDeliveredTransactionMasters() {
 		return deliveredTransactionMasters;
@@ -59,9 +68,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 	public void setWarehouseId(long warehouseId) {
 		this.warehouseId = warehouseId;
 	}
-
 	
-
 	public String getDescription() {
 		return this.description;
 	}
@@ -93,14 +100,6 @@ public class Warehouse extends BaseEntity implements Serializable {
 
 	public void setWarehouseName(String warehouseName) {
 		this.warehouseName = warehouseName;
-	}
-
-	public long getWarehouseParentId() {
-		return this.warehouseParentId;
-	}
-
-	public void setWarehouseParentId(long warehouseParentId) {
-		this.warehouseParentId = warehouseParentId;
 	}
 
 	public List<TransactionMaster> getTransactionMasters() {

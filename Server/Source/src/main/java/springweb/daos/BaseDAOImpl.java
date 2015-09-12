@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import springweb.entities.UserInfo;
 
 /**
  * Created by MinhPK on 7/30/15.
@@ -40,11 +43,16 @@ public class BaseDAOImpl<E> implements BaseDAO<E> {
     public void remove(E type) {
         entityManager.remove(entityManager.contains(type) ? type : entityManager.merge(type));
     }
+    
+    public void removeById(long entityId ){
+        E entity = findById(entityId);
+        remove( entity );
+     }
 
 	@Override
 	public List<E> findAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("SELECT u FROM " + entityType.getName() +" u")
+			       .getResultList();
 	}
 
 	@Override

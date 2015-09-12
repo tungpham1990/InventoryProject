@@ -104,13 +104,24 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
     <mvc:resources mapping="/layouts/**" location="/WEB-INF/layouts/" />
 
     <bean id="userInfoDAO" class="springweb.daos.UserInfoDAOImpl" />
+    <bean id="transactionMasterDAO" class="springweb.daos.TransactionMasterDAOImpl" />
+    <bean id="transactionDetailDAO" class="springweb.daos.TransactionDetailDAOImpl" />
+    <bean id="itemDAO" class="springweb.daos.ItemDAOImpl" />
+    <bean id="categoryItemDAO" class="springweb.daos.CategoryItemDAOImpl" />
+    <bean id="warehouseDAO" class="springweb.daos.WarehouseDAOImpl" />
 
     <bean id="userInfoService" class="springweb.services.UserInfoServiceImpl">
         <property name="userInfoDAO" ref="userInfoDAO" />
     </bean>
     
     <bean id="inventoryService" class="springweb.services.InventoryServiceImpl">
-        
+    </bean>
+     <bean id="syncService" class="springweb.services.SyncServiceImpl">
+     	<property name="transactionMasterDAO" ref="transactionMasterDAO" />
+     	<property name="transactionDetailDAO" ref="transactionDetailDAO" />
+     	<property name="itemDAO" ref="itemDAO" />
+     	<property name="categoryItemDAO" ref="categoryItemDAO" />
+     	<property name="warehouseDAO" ref="warehouseDAO" />
     </bean>
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
