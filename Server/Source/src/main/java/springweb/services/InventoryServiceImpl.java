@@ -25,15 +25,6 @@ public class InventoryServiceImpl implements InventoryService{
         storedProcedure.execute();
         // get result
         List<Inventory> invList = storedProcedure.getResultList();
-        /*while (rs.next()) {
-            Product product = new Product(
-                    rs.getString("Product"),
-                    rs.getString("ProductNumber"),
-                    rs.getString("Color"),
-                    rs.getString("Size"),
-                    rs.getString("Model"));
-            productList.add(product);
-        }*/
         System.out.println("inventory is: " + invList);
 		return invList;
 	}
