@@ -1,12 +1,16 @@
 package springweb.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import springweb.services.UserInfoService;
+import springweb.entities.Inventory;
+import springweb.services.InventoryService;
 
 /**
  * Created by MinhPK on 7/30/15.
@@ -16,13 +20,13 @@ import springweb.services.UserInfoService;
 public class InventoryController {
 
     @Autowired
-    private UserInfoService userInfoService;
+    private InventoryService inventoryService;
 
-    @RequestMapping(value="/check/{itemCode}/{warehouseId}", method=RequestMethod.POST)
-    public String checkInventory(@PathVariable String itemCode, @PathVariable String warehouseId) throws Exception
+    @RequestMapping(value="/check/{itemId}/{warehouseId}", method=RequestMethod.GET,  produces={"application/json"})
+    public @ResponseBody List<Inventory> checkInventory(@PathVariable int itemId, @PathVariable int warehouseId) throws Exception
     {
-    	
-     return "";
+    	List<Inventory> invList = inventoryService.calculateInventory(itemId, warehouseId);
+    	return invList;
     }
 
 }

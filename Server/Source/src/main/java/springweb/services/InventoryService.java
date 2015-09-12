@@ -1,5 +1,7 @@
 package springweb.services;
 
+import java.util.List;
+
 import springweb.entities.Inventory;
 
 /**
@@ -7,5 +9,5 @@ import springweb.entities.Inventory;
  */
 
 public interface InventoryService {
-    public Inventory calculateInventory(int itemId, int warehouseId);
+    public List<Inventory> calculateInventory(int itemId, int warehouseId);
 }

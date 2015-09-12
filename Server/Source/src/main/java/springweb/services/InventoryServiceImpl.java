@@ -1,38 +1,41 @@
 package springweb.services;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.ParameterMode;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
 
 import springweb.entities.Inventory;
 
 public class InventoryServiceImpl implements InventoryService{
-	private static final String PERSISTENCE_UNIT_NAME = "transactions-optional";
-    private static EntityManagerFactory factory;
+	@PersistenceContext
+    private EntityManager entityManager;
     
 	@Override
-	public Inventory calculateInventory(int itemCode, int warehouseId) {
-		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-        EntityManager em = factory.createEntityManager();
-
-        // Create call stored procedure
-        em.getTransaction().begin();
-        StoredProcedureQuery storedProcedure = em.createStoredProcedureQuery("sp_calculate_inventory");
+	public List<Inventory> calculateInventory(int itemId, int warehouseId) {
+        StoredProcedureQuery storedProcedure = entityManager.createStoredProcedureQuery("sp_calculate_inventory", Inventory.class);
         // set parameters
         storedProcedure.registerStoredProcedureParameter("item_id", Integer.class, ParameterMode.IN);
         storedProcedure.registerStoredProcedureParameter("warehouse_id", Integer.class, ParameterMode.IN);
-        storedProcedure.setParameter("item_code", 1);
-        storedProcedure.setParameter("warehouse_id", 1);
+        storedProcedure.setParameter("item_id", itemId);
+        storedProcedure.setParameter("warehouse_id", warehouseId);
         // execute SP
         storedProcedure.execute();
         // get result
-        Double tax = (Double)storedProcedure.getOutputParameterValue("tax");
-        System.out.println("Tax is: " + tax);
-        em.getTransaction().commit();
-        em.close();
-		return null;
+        List<Inventory> invList = storedProcedure.getResultList();
+        /*while (rs.next()) {
+            Product product = new Product(
+                    rs.getString("Product"),
+                    rs.getString("ProductNumber"),
+                    rs.getString("Color"),
+                    rs.getString("Size"),
+                    rs.getString("Model"));
+            productList.add(product);
+        }*/
+        System.out.println("inventory is: " + invList);
+		return invList;
 	}
 
 }

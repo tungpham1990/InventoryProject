@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SpringTemplateWeb
+Bundle-SymbolicName: SpringTemplateWeb
+Bundle-Version: 1.0.0.qualifier
+Export-Package: springweb.controllers,
+ springweb.daos,
+ springweb.dtos,
+ springweb.entities,
+ springweb.services,
+ springweb.utils

@@ -1,39 +1,75 @@
 package springweb.entities;
 
-public class Inventory {
-	String itemCode;
-	String warehouseId;
-	int quantityRemain;
-	public String getItemCode() {
-		return itemCode;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
+@Entity
+@IdClass(InventoryId.class)
+public class Inventory  implements Serializable{
+	@Id
+	@Column(name="item_id")
+	long itemId;
+	
+	@Id
+	@Column(name="warehouse_id")
+	long warehouseId;
+	
+	@Column(name="receipted_quantity")
+	long receiptedQuantity;
+	
+	@Column(name="issued_quantity")
+	long issuedQuantity;
+	
+	@Column(name="remain_quantity")
+	long remainQuantity;
+
+	public long getItemId() {
+		return itemId;
 	}
-	public void setItemCode(String itemCode) {
-		this.itemCode = itemCode;
+
+	public void setItemId(long itemId) {
+		this.itemId = itemId;
 	}
-	public String getWarehouseId() {
+
+	public long getWarehouseId() {
 		return warehouseId;
 	}
-	public void setWarehouseId(String warehouseId) {
+
+	public void setWarehouseId(long warehouseId) {
 		this.warehouseId = warehouseId;
 	}
-	public int getQuantityRemain() {
-		return quantityRemain;
+
+	public long getReceiptedQuantity() {
+		return receiptedQuantity;
 	}
-	public void setQuantityRemain(int quantityRemain) {
-		this.quantityRemain = quantityRemain;
+
+	public void setReceiptedQuantity(long receiptedQuantity) {
+		this.receiptedQuantity = receiptedQuantity;
 	}
-	public int getQuantityDelivered() {
-		return quantityDelivered;
+
+	public long getIssuedQuantity() {
+		return issuedQuantity;
 	}
-	public void setQuantityDelivered(int quantityDelivered) {
-		this.quantityDelivered = quantityDelivered;
+
+	public void setIssuedQuantity(long issuedQuantity) {
+		this.issuedQuantity = issuedQuantity;
 	}
-	public int getQuantityReceived() {
-		return quantityReceived;
+
+	public long getRemainQuantity() {
+		return remainQuantity;
 	}
-	public void setQuantityReceived(int quantityReceived) {
-		this.quantityReceived = quantityReceived;
+
+	public void setRemainQuantity(long remainQuantity) {
+		this.remainQuantity = remainQuantity;
 	}
-	int quantityDelivered;
-	int quantityReceived;
+}
+
+
+class InventoryId implements Serializable{
+	long itemId;
+	long warehouseId;
 }

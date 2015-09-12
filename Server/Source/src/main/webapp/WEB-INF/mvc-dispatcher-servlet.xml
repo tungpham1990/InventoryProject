@@ -108,6 +108,10 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
     <bean id="userInfoService" class="springweb.services.UserInfoServiceImpl">
         <property name="userInfoDAO" ref="userInfoDAO" />
     </bean>
+    
+    <bean id="inventoryService" class="springweb.services.InventoryServiceImpl">
+        
+    </bean>
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 </beans>
