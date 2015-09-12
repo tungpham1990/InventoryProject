@@ -7,5 +7,5 @@ import springweb.entities.Inventory;
  */
 
 public interface InventoryService {
-    public Inventory findByUserName(String itemCode, String warehouseId);
+    public Inventory calculateInventory(int itemId, int warehouseId);
 }

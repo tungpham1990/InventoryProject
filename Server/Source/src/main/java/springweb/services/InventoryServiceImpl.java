@@ -13,17 +13,18 @@ public class InventoryServiceImpl implements InventoryService{
     private static EntityManagerFactory factory;
     
 	@Override
-	public Inventory findByUserName(String itemCode, String warehouseId) {
+	public Inventory calculateInventory(int itemCode, int warehouseId) {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
 
         // Create call stored procedure
         em.getTransaction().begin();
-        StoredProcedureQuery storedProcedure = em.createStoredProcedureQuery("sales_tax");
+        StoredProcedureQuery storedProcedure = em.createStoredProcedureQuery("sp_calculate_inventory");
         // set parameters
-        storedProcedure.registerStoredProcedureParameter("subtotal", Double.class, ParameterMode.IN);
-        storedProcedure.registerStoredProcedureParameter("tax", Double.class, ParameterMode.OUT);
-        storedProcedure.setParameter("subtotal", 1f);
+        storedProcedure.registerStoredProcedureParameter("item_id", Integer.class, ParameterMode.IN);
+        storedProcedure.registerStoredProcedureParameter("warehouse_id", Integer.class, ParameterMode.IN);
+        storedProcedure.setParameter("item_code", 1);
+        storedProcedure.setParameter("warehouse_id", 1);
         // execute SP
         storedProcedure.execute();
         // get result
