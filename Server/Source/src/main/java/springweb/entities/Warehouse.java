@@ -1,12 +1,17 @@
 package springweb.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
-
-import java.sql.Timestamp;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -41,12 +46,12 @@ public class Warehouse extends BaseEntity implements Serializable {
 
 	//bi-directional many-to-one association to TransactionMaster
 	@OneToMany(mappedBy="deliveredWarehouse", fetch=FetchType.LAZY)
-	@JsonIgnore
+	//@JsonIgnore
 	private List<TransactionMaster> deliveredTransactionMasters;
 
 	//bi-directional many-to-one association to TransactionMaster
 	@OneToMany(mappedBy="receivedWarehouse", fetch=FetchType.LAZY)
-	@JsonIgnore
+	//@JsonIgnore
 	private List<TransactionMaster> receivedTransactionMasters;
 	
 	public Warehouse() {
@@ -60,7 +65,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 		this.warehouseParent = warehouseParent;
 	}
 
-	@JsonIgnore
+	//@JsonIgnore
 	public List<TransactionMaster> getDeliveredTransactionMasters() {
 		return deliveredTransactionMasters;
 	}
@@ -132,7 +137,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 		return transactionMaster;
 	}
 	
-	@JsonIgnore
+	//@JsonIgnore
 	public List<TransactionMaster> getReceivedTransactionMasters() {
 		return this.receivedTransactionMasters;
 	}

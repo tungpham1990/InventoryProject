@@ -41,10 +41,12 @@ public class TransactionMaster extends BaseEntity implements Serializable {
 	private Timestamp transactionDate;
 	
 	@ManyToOne
+	//@JsonIgnore
 	@JoinColumn(name = "received_warehouse_id", nullable = true)
 	private Warehouse receivedWarehouse;
 	
 	@ManyToOne
+	//@JsonIgnore
 	@JoinColumn(name = "delivered_warehosuse_id", nullable = true)
 	private Warehouse deliveredWarehouse;
 	
