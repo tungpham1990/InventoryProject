@@ -15,7 +15,6 @@ import springweb.entities.Item;
 import springweb.entities.TransactionDetail;
 import springweb.entities.TransactionMaster;
 import springweb.entities.Warehouse;
-import springweb.services.InventoryService;
 import springweb.services.SyncService;
 import springweb.utils.InventoryConstant;
 
@@ -75,7 +74,7 @@ public class SyncController {
     }
     
     @RequestMapping(value="/get/item/warehouse/{warehouseId}", method=RequestMethod.GET,  produces={"application/json"})
-    public @ResponseBody List<Item> getItemsWarehouse(@PathVariable int warehouseId) throws Exception
+    public @ResponseBody List<Item> getItemsWarehouse(@PathVariable long warehouseId) throws Exception
     {
     	return syncService.getItemsByWarehouseId(warehouseId);
     }

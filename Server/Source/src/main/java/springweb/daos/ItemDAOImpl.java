@@ -25,8 +25,8 @@ public class ItemDAOImpl extends BaseDAOImpl implements ItemDAO {
 	public List<Item> getItemsByWarehouseId(long warehouseId) {
 		 StoredProcedureQuery storedProcedure = entityManager.createStoredProcedureQuery("sp_get_warehouse_item", Item.class);
         // set parameters
-        storedProcedure.registerStoredProcedureParameter("warehouse_id", Integer.class, ParameterMode.IN);
-        storedProcedure.setParameter("warehouse_id", warehouseId);
+        storedProcedure.registerStoredProcedureParameter("warehouse_id", Long.class, ParameterMode.IN);
+        storedProcedure.setParameter("warehouse_id", new Long(warehouseId));
         // execute SP
         storedProcedure.execute();
         // get result

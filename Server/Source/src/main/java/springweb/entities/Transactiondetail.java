@@ -24,14 +24,14 @@ public class TransactionDetail extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="transaction_detail_id")
-	private long transactionDetailId;
+	private Long transactionDetailId;
 	
 	@ManyToOne
 	@JoinColumn(name = "transaction_master_id", nullable = false)
 	private TransactionMaster transactionMaster;
 	
 	@Column(name="category_item_id")
-	private long categoryItemId;
+	private Long categoryItemId;
 	
 	@OneToOne
 	private Item item;
@@ -43,7 +43,7 @@ public class TransactionDetail extends BaseEntity implements Serializable {
 	private Unit unit;
 	
 	@Column(name="quantity")
-	private long quantity;
+	private Long quantity;
 	
 	@Column(name="total_price")
 	private float totalPrice;
@@ -54,11 +54,11 @@ public class TransactionDetail extends BaseEntity implements Serializable {
 	@Column(name="total_charges")
 	private float totalCharges;
 	
-	public long getTransactionDetailId() {
+	public Long getTransactionDetailId() {
 		return transactionDetailId;
 	}
 
-	public void setTransactionDetailId(long transactionDetailId) {
+	public void setTransactionDetailId(Long transactionDetailId) {
 		this.transactionDetailId = transactionDetailId;
 	}
 
@@ -70,11 +70,11 @@ public class TransactionDetail extends BaseEntity implements Serializable {
 		this.transactionMaster = transactionMaster;
 	}
 
-	public long getCategoryItemId() {
+	public Long getCategoryItemId() {
 		return categoryItemId;
 	}
 
-	public void setCategoryItemId(long categoryItemId) {
+	public void setCategoryItemId(Long categoryItemId) {
 		this.categoryItemId = categoryItemId;
 	}
 
@@ -102,11 +102,11 @@ public class TransactionDetail extends BaseEntity implements Serializable {
 		this.unit = unit;
 	}
 
-	public long getQuantity() {
+	public Long getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(long quantity) {
+	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
 

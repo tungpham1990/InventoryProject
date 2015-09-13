@@ -10,6 +10,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 /**
  * The persistent class for the category_item database table.
@@ -23,7 +25,7 @@ public class CategoryItem extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="category_item_id")
-	private long categoryItemId;
+	private Long categoryItemId;
 
 	@Column(name="category_item_code")
 	private String categoryItemCode;
@@ -32,11 +34,11 @@ public class CategoryItem extends BaseEntity implements Serializable {
 	private String categoryItemName;
 
 	@Column(name="category_item_parent_id")
-	private long categoryItemParentId;
+	private Long categoryItemParentId;
 
 	private String description;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	private String features;
 
@@ -49,16 +51,17 @@ public class CategoryItem extends BaseEntity implements Serializable {
 
 	//bi-directional many-to-one association to Item
 	@OneToMany(mappedBy="categoryItem")
+	@JsonIgnore
 	private List<Item> items;
 
 	public CategoryItem() {
 	}
 
-	public long getCategoryItemId() {
+	public Long getCategoryItemId() {
 		return this.categoryItemId;
 	}
 
-	public void setCategoryItemId(long categoryItemId) {
+	public void setCategoryItemId(Long categoryItemId) {
 		this.categoryItemId = categoryItemId;
 	}
 
@@ -78,11 +81,11 @@ public class CategoryItem extends BaseEntity implements Serializable {
 		this.categoryItemName = categoryItemName;
 	}
 
-	public long getCategoryItemParentId() {
+	public Long getCategoryItemParentId() {
 		return this.categoryItemParentId;
 	}
 
-	public void setCategoryItemParentId(long categoryItemParentId) {
+	public void setCategoryItemParentId(Long categoryItemParentId) {
 		this.categoryItemParentId = categoryItemParentId;
 	}
 
@@ -94,11 +97,11 @@ public class CategoryItem extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public boolean getEnabled() {
+	public Boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 

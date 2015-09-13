@@ -17,7 +17,7 @@ public class Customer extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="customer_id")
-	private long customerId;
+	private Long customerId;
 
 	@Column(name="customer_code")
 	private String customerCode;
@@ -30,21 +30,21 @@ public class Customer extends BaseEntity implements Serializable {
 
 	private String description;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	@Column(name="is_personal")
-	private boolean isPersonal;
+	private Boolean isPersonal;
 
 
 	
 	public Customer() {
 	}
 
-	public long getCustomerId() {
+	public Long getCustomerId() {
 		return this.customerId;
 	}
 
-	public void setCustomerId(long customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -82,19 +82,19 @@ public class Customer extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public boolean getEnabled() {
+	public Boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public boolean getIsPersonal() {
+	public Boolean getIsPersonal() {
 		return this.isPersonal;
 	}
 
-	public void setIsPersonal(boolean isPersonal) {
+	public void setIsPersonal(Boolean isPersonal) {
 		this.isPersonal = isPersonal;
 	}
 

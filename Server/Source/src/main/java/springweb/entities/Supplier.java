@@ -17,11 +17,11 @@ public class Supplier extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="supplier_id")
-	private long supplierId;
+	private Long supplierId;
 
 	private String description;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	@Column(name="supplier_code")
 	private String supplierCode;
@@ -36,11 +36,11 @@ public class Supplier extends BaseEntity implements Serializable {
 	public Supplier() {
 	}
 
-	public long getSupplierId() {
+	public Long getSupplierId() {
 		return this.supplierId;
 	}
 
-	public void setSupplierId(long supplierId) {
+	public void setSupplierId(Long supplierId) {
 		this.supplierId = supplierId;
 	}
 
@@ -54,11 +54,11 @@ public class Supplier extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public boolean getEnabled() {
+	public Boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 

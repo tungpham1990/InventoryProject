@@ -17,12 +17,12 @@ public class TransactionType extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="transaction_type_id")
-	private long transactionTypeId;
+	private Long transactionTypeId;
 
 	
 	private String description;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	@Column(name="transaction_type_code")
 	private String transactionTypeCode;
@@ -30,11 +30,11 @@ public class TransactionType extends BaseEntity implements Serializable {
 	public TransactionType() {
 	}
 
-	public long getTransactionTypeId() {
+	public Long getTransactionTypeId() {
 		return this.transactionTypeId;
 	}
 
-	public void setTransactionTypeId(long transactionTypeId) {
+	public void setTransactionTypeId(Long transactionTypeId) {
 		this.transactionTypeId = transactionTypeId;
 	}
 
@@ -46,11 +46,11 @@ public class TransactionType extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public boolean getEnabled() {
+	public Boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 

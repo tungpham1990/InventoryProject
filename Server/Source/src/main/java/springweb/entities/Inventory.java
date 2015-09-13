@@ -12,64 +12,64 @@ import javax.persistence.IdClass;
 public class Inventory  implements Serializable{
 	@Id
 	@Column(name="item_id")
-	long itemId;
+	private Long itemId;
 	
 	@Id
 	@Column(name="warehouse_id")
-	long warehouseId;
+	private Long warehouseId;
 	
 	@Column(name="receipted_quantity")
-	long receiptedQuantity;
+	private Long receiptedQuantity;
 	
 	@Column(name="issued_quantity")
-	long issuedQuantity;
+	private Long issuedQuantity;
 	
 	@Column(name="remain_quantity")
-	long remainQuantity;
+	private Long remainQuantity;
 
-	public long getItemId() {
+	public Long getItemId() {
 		return itemId;
 	}
 
-	public void setItemId(long itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 
-	public long getWarehouseId() {
+	public Long getWarehouseId() {
 		return warehouseId;
 	}
 
-	public void setWarehouseId(long warehouseId) {
+	public void setWarehouseId(Long warehouseId) {
 		this.warehouseId = warehouseId;
 	}
 
-	public long getReceiptedQuantity() {
+	public Long getReceiptedQuantity() {
 		return receiptedQuantity;
 	}
 
-	public void setReceiptedQuantity(long receiptedQuantity) {
+	public void setReceiptedQuantity(Long receiptedQuantity) {
 		this.receiptedQuantity = receiptedQuantity;
 	}
 
-	public long getIssuedQuantity() {
+	public Long getIssuedQuantity() {
 		return issuedQuantity;
 	}
 
-	public void setIssuedQuantity(long issuedQuantity) {
+	public void setIssuedQuantity(Long issuedQuantity) {
 		this.issuedQuantity = issuedQuantity;
 	}
 
-	public long getRemainQuantity() {
+	public Long getRemainQuantity() {
 		return remainQuantity;
 	}
 
-	public void setRemainQuantity(long remainQuantity) {
+	public void setRemainQuantity(Long remainQuantity) {
 		this.remainQuantity = remainQuantity;
 	}
 }
 
 
 class InventoryId implements Serializable{
-	long itemId;
-	long warehouseId;
+	Long itemId;
+	Long warehouseId;
 }

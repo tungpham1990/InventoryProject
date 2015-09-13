@@ -17,7 +17,7 @@ public class UserInfo extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="user_info_id")
-	private long userInfoId;
+	private Long userInfoId;
 
 	private String cmnd;
 
@@ -25,7 +25,7 @@ public class UserInfo extends BaseEntity implements Serializable {
 
 	private String email;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	private String phone;
 
@@ -42,11 +42,11 @@ public class UserInfo extends BaseEntity implements Serializable {
 	public UserInfo() {
 	}
 
-	public long getUserInfoId() {
+	public Long getUserInfoId() {
 		return this.userInfoId;
 	}
 
-	public void setUserInfoId(long userInfoId) {
+	public void setUserInfoId(Long userInfoId) {
 		this.userInfoId = userInfoId;
 	}
 
@@ -76,11 +76,11 @@ public class UserInfo extends BaseEntity implements Serializable {
 		this.email = email;
 	}
 
-	public boolean getEnabled() {
+	public Boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 

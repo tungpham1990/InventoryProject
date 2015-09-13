@@ -2,6 +2,9 @@ package springweb.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -18,11 +21,11 @@ public class Warehouse extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="warehouse_id")
-	private long warehouseId;
+	private Long warehouseId;
 
 	private String description;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	@Column(name="warehouse_code")
 	private String warehouseCode;
@@ -34,6 +37,21 @@ public class Warehouse extends BaseEntity implements Serializable {
 	@JoinColumn(name = "warehouse_parent_id", nullable = true)
 	private Warehouse warehouseParent;
 
+	
+
+	//bi-directional many-to-one association to TransactionMaster
+	@OneToMany(mappedBy="deliveredWarehouse", fetch=FetchType.LAZY)
+	@JsonIgnore
+	private List<TransactionMaster> deliveredTransactionMasters;
+
+	//bi-directional many-to-one association to TransactionMaster
+	@OneToMany(mappedBy="receivedWarehouse", fetch=FetchType.LAZY)
+	@JsonIgnore
+	private List<TransactionMaster> receivedTransactionMasters;
+	
+	public Warehouse() {
+	}
+
 	public Warehouse getWarehouseParent() {
 		return warehouseParent;
 	}
@@ -42,6 +60,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 		this.warehouseParent = warehouseParent;
 	}
 
+	@JsonIgnore
 	public List<TransactionMaster> getDeliveredTransactionMasters() {
 		return deliveredTransactionMasters;
 	}
@@ -49,23 +68,12 @@ public class Warehouse extends BaseEntity implements Serializable {
 	public void setDeliveredTransactionMasters(List<TransactionMaster> deliveredTransactionMasters) {
 		this.deliveredTransactionMasters = deliveredTransactionMasters;
 	}
-
-	//bi-directional many-to-one association to TransactionMaster
-	@OneToMany(mappedBy="deliveredWarehouse")
-	private List<TransactionMaster> deliveredTransactionMasters;
-
-	//bi-directional many-to-one association to TransactionMaster
-	@OneToMany(mappedBy="receivedWarehouse")
-	private List<TransactionMaster> receivedTransactionMasters;
-		
-	public Warehouse() {
-	}
-
-	public long getWarehouseId() {
+	
+	public Long getWarehouseId() {
 		return this.warehouseId;
 	}
 
-	public void setWarehouseId(long warehouseId) {
+	public void setWarehouseId(Long warehouseId) {
 		this.warehouseId = warehouseId;
 	}
 	
@@ -77,11 +85,11 @@ public class Warehouse extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public boolean getEnabled() {
+	public Boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -124,6 +132,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 		return transactionMaster;
 	}
 	
+	@JsonIgnore
 	public List<TransactionMaster> getReceivedTransactionMasters() {
 		return this.receivedTransactionMasters;
 	}

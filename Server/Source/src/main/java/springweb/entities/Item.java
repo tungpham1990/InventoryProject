@@ -101,11 +101,11 @@ public class Item extends BaseEntity implements Serializable {
 		this.categoryItem = categoryItem;
 	}
 
-	public boolean isEnabled() {
+	public Boolean isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -120,7 +120,7 @@ public class Item extends BaseEntity implements Serializable {
 	
 
 	@Column(name="enabled")
-	private boolean enabled;
+	private Boolean enabled;
 	
 	@Column(name="description")
 	private String description;

@@ -26,7 +26,7 @@ public class TransactionMaster extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="transaction_master_id")
-	private long transactionMasterId;
+	private Long transactionMasterId;
 	
 	
 	@Column(name="transaction_code")
@@ -79,12 +79,12 @@ public class TransactionMaster extends BaseEntity implements Serializable {
 	private float totalCharges;
 	
 	
-	public long getTransactionMasterId() {
+	public Long getTransactionMasterId() {
 		return transactionMasterId;
 	}
 
 
-	public void setTransactionMasterId(long transactionMasterId) {
+	public void setTransactionMasterId(Long transactionMasterId) {
 		this.transactionMasterId = transactionMasterId;
 	}
 
@@ -219,12 +219,12 @@ public class TransactionMaster extends BaseEntity implements Serializable {
 	}
 
 
-	public boolean isEnabled() {
+	public Boolean isEnabled() {
 		return enabled;
 	}
 
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -244,7 +244,7 @@ public class TransactionMaster extends BaseEntity implements Serializable {
 	
 	
 	@Column(name="enabled")
-	private boolean enabled;
+	private Boolean enabled;
 	
 	
 	@Column(name="Description")

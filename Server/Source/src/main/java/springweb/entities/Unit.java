@@ -18,12 +18,12 @@ public class Unit extends BaseEntity implements Serializable {
 
 	@Id
 	@Column(name="unit_id")
-	private long unitId;
+	private Long unitId;
 
 	
 	private String description;
 
-	private boolean enabled;
+	private Boolean enabled;
 
 	@Column(name="unit_code")
 	private String unitCode;
@@ -40,11 +40,11 @@ public class Unit extends BaseEntity implements Serializable {
 	public Unit() {
 	}
 
-	public long getUnitId() {
+	public Long getUnitId() {
 		return this.unitId;
 	}
 
-	public void setUnitId(long unitId) {
+	public void setUnitId(Long unitId) {
 		this.unitId = unitId;
 	}
 
@@ -58,11 +58,11 @@ public class Unit extends BaseEntity implements Serializable {
 		this.description = description;
 	}
 
-	public boolean getEnabled() {
+	public Boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
