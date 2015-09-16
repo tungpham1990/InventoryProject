@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import springweb.daos.UserDAO;
+import springweb.daos.UserInfoDAO;
 import springweb.entities.UserInfo;
 
 /**
@@ -16,18 +16,21 @@ public class UserServiceImpl implements UserService {
     private final static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    private UserDAO<UserInfo> userDAO;
+    private UserInfoDAO<UserInfo> userInfoDAO;
 
-    public UserDAO<UserInfo> getUserDAO() {
-        return userDAO;
-    }
 
-    public void setUserDAO(UserDAO<UserInfo> userDAO) {
-        this.userDAO = userDAO;
-    }
+    public UserInfoDAO<UserInfo> getUserDAO() {
+		return userInfoDAO;
+	}
 
-    @Override
+
+	public void setUserDAO(UserInfoDAO<UserInfo> userInfoDAO) {
+		this.userInfoDAO = userInfoDAO;
+	}
+
+
+	@Override
     public UserInfo findByUserName(String username) {
-        return userDAO.findByUserName(username);
+        return userInfoDAO.findByUserName(username);
     }
 }

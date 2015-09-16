@@ -22,10 +22,10 @@ public class InventoryController {
     @Autowired
     private InventoryService inventoryService;
 
-    @RequestMapping(value="/check/{itemId}/{warehouseId}", method=RequestMethod.GET,  produces={"application/json"})
-    public @ResponseBody List<Inventory> checkInventory(@PathVariable int itemId, @PathVariable int warehouseId) throws Exception
+    @RequestMapping(value="/check/{Barcode}/{warehouseId}", method=RequestMethod.GET,  produces={"application/json"})
+    public @ResponseBody List<Inventory> checkInventory(@PathVariable int Barcode, @PathVariable int warehouseId) throws Exception
     {
-    	List<Inventory> invList = inventoryService.calculateInventory(itemId, warehouseId);
+    	List<Inventory> invList = inventoryService.calculateInventory(Barcode, warehouseId);
     	return invList;
     }
 
