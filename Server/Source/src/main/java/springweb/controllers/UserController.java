@@ -17,6 +17,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import springweb.entities.UserInfo;
 import springweb.services.UserInfoService;
+import springweb.utils.InventoryConstant;
 
 /**
  * Created by MinhPK on 7/30/15.
@@ -34,26 +35,21 @@ public class UserController {
     	String UserName = "admin";
     	String Password = "admin";
     	Map<String, String> response = new HashMap<String, String>();
-    	String status;
-    	if(UserName == null || UserName == ""){
-    		status = "FAIL";
-    		response.put("Status", status);
+    	if(UserName == null || UserName == InventoryConstant.EMPTY){
+    		response.put("Status", InventoryConstant.FAIL);
     		return response;
     	}
     	UserInfo user = userInfoService.findByUserName(UserName);
     	if(user == null){
-    		status = "FAIL";
-    		response.put("Status", status);
+    		response.put("Status", InventoryConstant.FAIL);
     		return response;
     	}
     	if(user.getUserInfoCode().equals(Password)){
-			status = "OK";
-			response.put("Status", status);
+			response.put("Status", InventoryConstant.OK);
 			response.put("UserID", user.getUserInfoId().toString());
 			return response;
     	}
-    	status = "FAIL";
-		response.put("Status", status);
+		response.put("Status", InventoryConstant.FAIL);
 		return response;
     }
 

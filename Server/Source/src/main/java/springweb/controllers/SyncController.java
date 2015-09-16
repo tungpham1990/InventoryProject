@@ -25,6 +25,20 @@ public class SyncController {
 	@Autowired
     private SyncService syncService;
 
+	@RequestMapping(value="/transaction", method=RequestMethod.POST,  produces={"application/json"})
+    public @ResponseBody String createTransaction( @ModelAttribute("TransactionMaster") TransactionMaster transactionMaster, @ModelAttribute("TransactionDetailList") List<TransactionDetail> transactionDetailList) throws Exception
+    {
+		try{
+	    	syncService.createTransactionMaster(transactionMaster);
+	    	for(TransactionDetail transactionDetail : transactionDetailList){
+	    		syncService.createTransactionDetail(transactionDetail);
+	    	}
+		}catch(Exception e){
+	    	return InventoryConstant.FAIL;
+		}
+    	return InventoryConstant.OK;
+    }
+	
     @RequestMapping(value="/update/master", method=RequestMethod.POST,  produces={"application/json"})
     public @ResponseBody String updateMaster( @ModelAttribute("transactonMaster") TransactionMaster transactionMaster) throws Exception
     {
