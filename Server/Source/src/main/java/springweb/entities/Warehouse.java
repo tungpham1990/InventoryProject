@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 /**
  * The persistent class for the warehouse database table.
@@ -28,8 +30,10 @@ public class Warehouse extends BaseEntity implements Serializable {
 	@Column(name="warehouse_id")
 	private Long warehouseId;
 
+	@Column(name="description")
 	private String description;
 
+	@Column(name="enabled")
 	private Boolean enabled;
 
 	@Column(name="warehouse_code")
@@ -46,12 +50,12 @@ public class Warehouse extends BaseEntity implements Serializable {
 
 	//bi-directional many-to-one association to TransactionMaster
 	@OneToMany(mappedBy="deliveredWarehouse", fetch=FetchType.LAZY)
-	//@JsonIgnore
+	@JsonIgnore
 	private List<TransactionMaster> deliveredTransactionMasters;
 
 	//bi-directional many-to-one association to TransactionMaster
 	@OneToMany(mappedBy="receivedWarehouse", fetch=FetchType.LAZY)
-	//@JsonIgnore
+	@JsonIgnore
 	private List<TransactionMaster> receivedTransactionMasters;
 	
 	public Warehouse() {
@@ -65,7 +69,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 		this.warehouseParent = warehouseParent;
 	}
 
-	//@JsonIgnore
+	@JsonIgnore
 	public List<TransactionMaster> getDeliveredTransactionMasters() {
 		return deliveredTransactionMasters;
 	}
@@ -137,7 +141,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 		return transactionMaster;
 	}
 	
-	//@JsonIgnore
+	@JsonIgnore
 	public List<TransactionMaster> getReceivedTransactionMasters() {
 		return this.receivedTransactionMasters;
 	}
