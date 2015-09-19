@@ -73,7 +73,7 @@ public class Warehouse extends BaseEntity implements Serializable {
 	public List<TransactionMaster> getDeliveredTransactionMasters() {
 		return deliveredTransactionMasters;
 	}
-
+	@JsonIgnore
 	public void setDeliveredTransactionMasters(List<TransactionMaster> deliveredTransactionMasters) {
 		this.deliveredTransactionMasters = deliveredTransactionMasters;
 	}
@@ -119,21 +119,14 @@ public class Warehouse extends BaseEntity implements Serializable {
 		this.warehouseName = warehouseName;
 	}
 
-	public List<TransactionMaster> getTransactionMasters() {
-		return this.deliveredTransactionMasters;
-	}
-
-	public void setTransactionMasters(List<TransactionMaster> transactionMasters) {
-		this.deliveredTransactionMasters = transactionMasters;
-	}
-
+	@JsonIgnore
 	public TransactionMaster addTransactionMaster(TransactionMaster transactionMaster) {
-		getTransactionMasters().add(transactionMaster);
+		getDeliveredTransactionMasters().add(transactionMaster);
 		transactionMaster.setDeliveredWarehouse(this);
 
 		return transactionMaster;
 	}
-
+	@JsonIgnore
 	public TransactionMaster removeDeliveredTransactionMaster(TransactionMaster transactionMaster) {
 		getDeliveredTransactionMasters().remove(transactionMaster);
 		transactionMaster.setDeliveredWarehouse(null);
@@ -145,20 +138,20 @@ public class Warehouse extends BaseEntity implements Serializable {
 	public List<TransactionMaster> getReceivedTransactionMasters() {
 		return this.receivedTransactionMasters;
 	}
-
+	@JsonIgnore
 	public void setReceivedTransactionMasters(List<TransactionMaster> transactionMasters) {
 		this.receivedTransactionMasters = transactionMasters;
 	}
-
+	@JsonIgnore
 	public TransactionMaster addReceivedTransactionMaster(TransactionMaster transactionMaster) {
-		getTransactionMasters().add(transactionMaster);
+		getReceivedTransactionMasters().add(transactionMaster);
 		transactionMaster.setReceivedWarehouse(this);
 
 		return transactionMaster;
 	}
-
+	@JsonIgnore
 	public TransactionMaster removeReceivedTransactionMaster(TransactionMaster transactionMaster) {
-		getTransactionMasters().remove(transactionMaster);
+		getReceivedTransactionMasters().remove(transactionMaster);
 		transactionMaster.setReceivedWarehouse(null);
 
 		return transactionMaster;

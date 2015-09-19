@@ -30,8 +30,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <bean id="jpaVendorAdapter"
           class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="database" value="MYSQL" />
-        <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+        <property name="generateDdl" value="true" />
+        <property name="database" value="SQL_SERVER" />
+        <property name="databasePlatform" value="org.hibernate.dialect.SQLServerDialect" />
     </bean>
 
     <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />

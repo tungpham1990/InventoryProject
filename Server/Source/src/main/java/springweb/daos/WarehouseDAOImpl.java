@@ -1,11 +1,12 @@
 package springweb.daos;
 
-import springweb.entities.UserInfo;
-import springweb.entities.Warehouse;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
+import springweb.entities.Warehouse;
 
 /**
  * Created by MinhPK on 7/30/15.
@@ -19,12 +20,11 @@ public class WarehouseDAOImpl extends BaseDAOImpl implements WarehouseDAO {
         super(Warehouse.class);
     }
 
-    public UserInfo findByUserName(String username) {
+    public List<Warehouse> findAllWarehouse() {
 
-        TypedQuery<UserInfo> query = entityManager.
-                    createQuery("SELECT u FROM UserInfo u WHERE u.userInfoName = ?1", UserInfo.class);
-        query.setParameter(1, username);
+        TypedQuery<Warehouse> query = entityManager.
+                    createQuery("SELECT u FROM Warehouse u", Warehouse.class);
 
-        return (UserInfo) query.getSingleResult();
+        return query.getResultList();
     }
 }
