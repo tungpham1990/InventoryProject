@@ -1,0 +1,9 @@
+C:\Users\Hang\Downloads\GenCode128\GenCode128\GenCode128\bin\Debug\GenCode128.dll
+C:\Users\Hang\Downloads\GenCode128\GenCode128\GenCode128\bin\Debug\GenCode128.pdb
+C:\Users\Hang\Downloads\GenCode128\GenCode128\GenCode128\obj\Debug\GenCode128.dll
+C:\Users\Hang\Downloads\GenCode128\GenCode128\GenCode128\obj\Debug\GenCode128.pdb
+D:\Inventory\GenCode128\bin\Debug\GenCode128.dll
+D:\Inventory\GenCode128\bin\Debug\GenCode128.pdb
+D:\Inventory\GenCode128\obj\Debug\GenCode128.dll
+D:\Inventory\GenCode128\obj\Debug\GenCode128.pdb
+D:\Inventory\GenCode128\obj\Debug\GenCode128.csprojResolveAssemblyReference.cache

@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="category_item">
+    <Key>
+      <PropertyRef Name="category_item_id" />
+    </Key>
+    <Property Name="category_item_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_item_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_item_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="features" Type="nvarchar" MaxLength="512" />
+    <Property Name="specifications" Type="nvarchar" MaxLength="512" />
+    <Property Name="unit_id" Type="bigint" />
+    <Property Name="category_item_parent_id" Type="bigint" />
+    <Property Name="node_level" Type="int" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="company_short_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="company_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="company_parent_id" Type="bigint" />
+    <Property Name="is_branch" Type="bit" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="customer_short_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="customer_name" Type="nvarchar" MaxLength="128" />
+    <Property Name="is_personal" Type="bit" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="item_id" />
+    </Key>
+    <Property Name="item_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="item_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="features" Type="nvarchar" MaxLength="512" />
+    <Property Name="specifications" Type="nvarchar" MaxLength="512" />
+    <Property Name="unit_id" Type="bigint" />
+    <Property Name="category_item_id" Type="bigint" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="supplier_id" />
+    </Key>
+    <Property Name="supplier_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="supplier_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="supplier_short_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="supplier_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="transaction_detail">
+    <Key>
+      <PropertyRef Name="transaction_detail_id" />
+    </Key>
+    <Property Name="transaction_detail_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transaction_master_id" Type="bigint" Nullable="false" />
+    <Property Name="category_item_id" Type="bigint" Nullable="false" />
+    <Property Name="item_id" Type="bigint" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="unit_id" Type="bigint" />
+    <Property Name="quantity" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="total_price" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="percent_charges" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="total_charges" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="total_amount" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="transaction_master">
+    <Key>
+      <PropertyRef Name="transaction_master_id" />
+    </Key>
+    <Property Name="transaction_master_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transaction_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="transaction_type_id" Type="bigint" Nullable="false" />
+    <Property Name="transaction_date" Type="datetime" Nullable="false" />
+    <Property Name="received_warehouse_id" Type="bigint" />
+    <Property Name="delivered_warehosuse_id" Type="bigint" />
+    <Property Name="receiver" Type="nvarchar" MaxLength="128" />
+    <Property Name="deliver" Type="nvarchar" MaxLength="128" />
+    <Property Name="customer_id" Type="bigint" />
+    <Property Name="supplier_id" Type="bigint" />
+    <Property Name="total_price" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="percent_charges" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="total_charges" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="total_amount" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="transaction_type">
+    <Key>
+      <PropertyRef Name="transaction_type_id" />
+    </Key>
+    <Property Name="transaction_type_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transaction_type_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="unit">
+    <Key>
+      <PropertyRef Name="unit_id" />
+    </Key>
+    <Property Name="unit_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unit_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="unit_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="user_info">
+    <Key>
+      <PropertyRef Name="user_info_id" />
+    </Key>
+    <Property Name="user_info_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_info_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_info_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="cmnd" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="role_info" Type="nvarchar" MaxLength="128" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="warehouse">
+    <Key>
+      <PropertyRef Name="warehouse_id" />
+    </Key>
+    <Property Name="warehouse_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="warehouse_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="warehouse_name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="warehouse_parent_id" Type="bigint" />
+    <Property Name="enabled" Type="bit" />
+    <Property Name="description" Type="nvarchar" MaxLength="128" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="create_user" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_date" Type="datetime" />
+    <Property Name="update_user" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_category_item_category_item_parent">
+    <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+    <End Role="category_item" Type="Self.category_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unit">
+        <PropertyRef Name="unit_id" />
+      </Principal>
+      <Dependent Role="category_item">
+        <PropertyRef Name="unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_category_item_category_item_unit">
+    <End Role="category_item" Type="Self.category_item" Multiplicity="1" />
+    <End Role="category_item1" Type="Self.category_item" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="category_item">
+        <PropertyRef Name="category_item_id" />
+      </Principal>
+      <Dependent Role="category_item1">
+        <PropertyRef Name="category_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_item_category_item">
+    <End Role="category_item" Type="Self.category_item" Multiplicity="0..1" />
+    <End Role="item" Type="Self.item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category_item">
+        <PropertyRef Name="category_item_id" />
+      </Principal>
+      <Dependent Role="item">
+        <PropertyRef Name="category_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_item_unit">
+    <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+    <End Role="item" Type="Self.item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unit">
+        <PropertyRef Name="unit_id" />
+      </Principal>
+      <Dependent Role="item">
+        <PropertyRef Name="unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_detail_category_item">
+    <End Role="category_item" Type="Self.category_item" Multiplicity="1" />
+    <End Role="transaction_detail" Type="Self.transaction_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category_item">
+        <PropertyRef Name="category_item_id" />
+      </Principal>
+      <Dependent Role="transaction_detail">
+        <PropertyRef Name="category_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_detail_item">
+    <End Role="item" Type="Self.item" Multiplicity="1" />
+    <End Role="transaction_detail" Type="Self.transaction_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="item">
+        <PropertyRef Name="item_id" />
+      </Principal>
+      <Dependent Role="transaction_detail">
+        <PropertyRef Name="item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_detail_transaction_master">
+    <End Role="transaction_master" Type="Self.transaction_master" Multiplicity="1" />
+    <End Role="transaction_detail" Type="Self.transaction_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction_master">
+        <PropertyRef Name="transaction_master_id" />
+      </Principal>
+      <Dependent Role="transaction_detail">
+        <PropertyRef Name="transaction_master_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_detail_unit">
+    <End Role="unit" Type="Self.unit" Multiplicity="0..1" />
+    <End Role="transaction_detail" Type="Self.transaction_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unit">
+        <PropertyRef Name="unit_id" />
+      </Principal>
+      <Dependent Role="transaction_detail">
+        <PropertyRef Name="unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_master_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="transaction_master" Type="Self.transaction_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="transaction_master">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_master_delievered_warehouse">
+    <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+    <End Role="transaction_master" Type="Self.transaction_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="warehouse">
+        <PropertyRef Name="warehouse_id" />
+      </Principal>
+      <Dependent Role="transaction_master">
+        <PropertyRef Name="delivered_warehosuse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_master_received_warehouse">
+    <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+    <End Role="transaction_master" Type="Self.transaction_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="warehouse">
+        <PropertyRef Name="warehouse_id" />
+      </Principal>
+      <Dependent Role="transaction_master">
+        <PropertyRef Name="received_warehouse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_master_supplier">
+    <End Role="supplier" Type="Self.supplier" Multiplicity="0..1" />
+    <End Role="transaction_master" Type="Self.transaction_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="supplier_id" />
+      </Principal>
+      <Dependent Role="transaction_master">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_master_transaction_type">
+    <End Role="transaction_type" Type="Self.transaction_type" Multiplicity="1" />
+    <End Role="transaction_master" Type="Self.transaction_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction_type">
+        <PropertyRef Name="transaction_type_id" />
+      </Principal>
+      <Dependent Role="transaction_master">
+        <PropertyRef Name="transaction_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_warehouse_warehouse_parent">
+    <End Role="warehouse" Type="Self.warehouse" Multiplicity="0..1" />
+    <End Role="warehouse1" Type="Self.warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="warehouse">
+        <PropertyRef Name="warehouse_id" />
+      </Principal>
+      <Dependent Role="warehouse1">
+        <PropertyRef Name="warehouse_parent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InventoryModelStoreContainer">
+    <EntitySet Name="category_item" EntityType="Self.category_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transaction_detail" EntityType="Self.transaction_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transaction_master" EntityType="Self.transaction_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transaction_type" EntityType="Self.transaction_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="unit" EntityType="Self.unit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_info" EntityType="Self.user_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="warehouse" EntityType="Self.warehouse" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_category_item_category_item_parent" Association="Self.FK_category_item_category_item_parent">
+      <End Role="unit" EntitySet="unit" />
+      <End Role="category_item" EntitySet="category_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_category_item_category_item_unit" Association="Self.FK_category_item_category_item_unit">
+      <End Role="category_item" EntitySet="category_item" />
+      <End Role="category_item1" EntitySet="category_item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_item_category_item" Association="Self.FK_item_category_item">
+      <End Role="category_item" EntitySet="category_item" />
+      <End Role="item" EntitySet="item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_item_unit" Association="Self.FK_item_unit">
+      <End Role="unit" EntitySet="unit" />
+      <End Role="item" EntitySet="item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_detail_category_item" Association="Self.FK_transaction_detail_category_item">
+      <End Role="category_item" EntitySet="category_item" />
+      <End Role="transaction_detail" EntitySet="transaction_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_detail_item" Association="Self.FK_transaction_detail_item">
+      <End Role="item" EntitySet="item" />
+      <End Role="transaction_detail" EntitySet="transaction_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_detail_transaction_master" Association="Self.FK_transaction_detail_transaction_master">
+      <End Role="transaction_master" EntitySet="transaction_master" />
+      <End Role="transaction_detail" EntitySet="transaction_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_detail_unit" Association="Self.FK_transaction_detail_unit">
+      <End Role="unit" EntitySet="unit" />
+      <End Role="transaction_detail" EntitySet="transaction_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_master_customer" Association="Self.FK_transaction_master_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="transaction_master" EntitySet="transaction_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_master_delievered_warehouse" Association="Self.FK_transaction_master_delievered_warehouse">
+      <End Role="warehouse" EntitySet="warehouse" />
+      <End Role="transaction_master" EntitySet="transaction_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_master_received_warehouse" Association="Self.FK_transaction_master_received_warehouse">
+      <End Role="warehouse" EntitySet="warehouse" />
+      <End Role="transaction_master" EntitySet="transaction_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_master_supplier" Association="Self.FK_transaction_master_supplier">
+      <End Role="supplier" EntitySet="supplier" />
+      <End Role="transaction_master" EntitySet="transaction_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_master_transaction_type" Association="Self.FK_transaction_master_transaction_type">
+      <End Role="transaction_type" EntitySet="transaction_type" />
+      <End Role="transaction_master" EntitySet="transaction_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_warehouse_warehouse_parent" Association="Self.FK_warehouse_warehouse_parent">
+      <End Role="warehouse" EntitySet="warehouse" />
+      <End Role="warehouse1" EntitySet="warehouse" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

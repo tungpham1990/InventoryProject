@@ -1,0 +1,11 @@
+D:\KietNM\InvPro\Inventory\Inventory.Data\bin\Release\Inventory.Data.dll.config
+D:\KietNM\InvPro\Inventory\Inventory.Data\bin\Release\Inventory.Data.dll
+D:\KietNM\InvPro\Inventory\Inventory.Data\bin\Release\Inventory.Data.pdb
+D:\KietNM\InvPro\Inventory\Inventory.Data\bin\Release\EntityFramework.dll
+D:\KietNM\InvPro\Inventory\Inventory.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\KietNM\InvPro\Inventory\Inventory.Data\bin\Release\EntityFramework.xml
+D:\KietNM\InvPro\Inventory\Inventory.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\KietNM\InvPro\Inventory\Inventory.Data\obj\Release\Inventory.Data.Properties.Resources.resources
+D:\KietNM\InvPro\Inventory\Inventory.Data\obj\Release\Inventory.Data.csproj.GenerateResource.Cache
+D:\KietNM\InvPro\Inventory\Inventory.Data\obj\Release\Inventory.Data.dll
+D:\KietNM\InvPro\Inventory\Inventory.Data\obj\Release\Inventory.Data.pdb

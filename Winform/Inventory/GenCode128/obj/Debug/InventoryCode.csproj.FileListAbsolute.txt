@@ -1,0 +1,4 @@
+D:\Inventory\GenCode128\bin\Debug\GenCode128.dll
+D:\Inventory\GenCode128\bin\Debug\GenCode128.pdb
+D:\Inventory\GenCode128\obj\Debug\GenCode128.dll
+D:\Inventory\GenCode128\obj\Debug\GenCode128.pdb

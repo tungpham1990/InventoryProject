@@ -1,0 +1,17 @@
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\Inventory.exe.config
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\Inventory.exe
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\Inventory.pdb
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\EntityFramework.dll
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\EntityFramework.SqlServer.dll
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\Inventory.Data.dll
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\Inventory.Data.pdb
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\EntityFramework.xml
+D:\KietNM\InvPro\Inventory\Inventory\bin\Release\EntityFramework.SqlServer.xml
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.csprojResolveAssemblyReference.cache
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.frmSearch.resources
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.frmImport.resources
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.frmMain.resources
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.Properties.Resources.resources
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.csproj.GenerateResource.Cache
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.exe
+D:\KietNM\InvPro\Inventory\Inventory\obj\Release\Inventory.pdb

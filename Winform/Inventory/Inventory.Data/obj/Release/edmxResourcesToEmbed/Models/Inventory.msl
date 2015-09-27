@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InventoryModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="category_item">
+      <EntityTypeMapping TypeName="InventoryModel.category_item">
+        <MappingFragment StoreEntitySet="category_item">
+          <ScalarProperty Name="category_item_id" ColumnName="category_item_id" />
+          <ScalarProperty Name="category_item_code" ColumnName="category_item_code" />
+          <ScalarProperty Name="category_item_name" ColumnName="category_item_name" />
+          <ScalarProperty Name="features" ColumnName="features" />
+          <ScalarProperty Name="specifications" ColumnName="specifications" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="category_item_parent_id" ColumnName="category_item_parent_id" />
+          <ScalarProperty Name="node_level" ColumnName="node_level" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="InventoryModel.company">
+        <MappingFragment StoreEntitySet="company">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="company_code" ColumnName="company_code" />
+          <ScalarProperty Name="company_short_name" ColumnName="company_short_name" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="company_parent_id" ColumnName="company_parent_id" />
+          <ScalarProperty Name="is_branch" ColumnName="is_branch" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="InventoryModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_code" ColumnName="customer_code" />
+          <ScalarProperty Name="customer_short_name" ColumnName="customer_short_name" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="is_personal" ColumnName="is_personal" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="InventoryModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="item_code" ColumnName="item_code" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="features" ColumnName="features" />
+          <ScalarProperty Name="specifications" ColumnName="specifications" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="category_item_id" ColumnName="category_item_id" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suppliers">
+      <EntityTypeMapping TypeName="InventoryModel.supplier">
+        <MappingFragment StoreEntitySet="supplier">
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="supplier_code" ColumnName="supplier_code" />
+          <ScalarProperty Name="supplier_short_name" ColumnName="supplier_short_name" />
+          <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction_detail">
+      <EntityTypeMapping TypeName="InventoryModel.transaction_detail">
+        <MappingFragment StoreEntitySet="transaction_detail">
+          <ScalarProperty Name="transaction_detail_id" ColumnName="transaction_detail_id" />
+          <ScalarProperty Name="transaction_master_id" ColumnName="transaction_master_id" />
+          <ScalarProperty Name="category_item_id" ColumnName="category_item_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="percent_charges" ColumnName="percent_charges" />
+          <ScalarProperty Name="total_charges" ColumnName="total_charges" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction_master">
+      <EntityTypeMapping TypeName="InventoryModel.transaction_master">
+        <MappingFragment StoreEntitySet="transaction_master">
+          <ScalarProperty Name="transaction_master_id" ColumnName="transaction_master_id" />
+          <ScalarProperty Name="transaction_code" ColumnName="transaction_code" />
+          <ScalarProperty Name="transaction_type_id" ColumnName="transaction_type_id" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="received_warehouse_id" ColumnName="received_warehouse_id" />
+          <ScalarProperty Name="delivered_warehosuse_id" ColumnName="delivered_warehosuse_id" />
+          <ScalarProperty Name="receiver" ColumnName="receiver" />
+          <ScalarProperty Name="deliver" ColumnName="deliver" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="percent_charges" ColumnName="percent_charges" />
+          <ScalarProperty Name="total_charges" ColumnName="total_charges" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction_type">
+      <EntityTypeMapping TypeName="InventoryModel.transaction_type">
+        <MappingFragment StoreEntitySet="transaction_type">
+          <ScalarProperty Name="transaction_type_id" ColumnName="transaction_type_id" />
+          <ScalarProperty Name="transaction_type_code" ColumnName="transaction_type_code" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="units">
+      <EntityTypeMapping TypeName="InventoryModel.unit">
+        <MappingFragment StoreEntitySet="unit">
+          <ScalarProperty Name="unit_id" ColumnName="unit_id" />
+          <ScalarProperty Name="unit_code" ColumnName="unit_code" />
+          <ScalarProperty Name="unit_name" ColumnName="unit_name" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_info">
+      <EntityTypeMapping TypeName="InventoryModel.user_info">
+        <MappingFragment StoreEntitySet="user_info">
+          <ScalarProperty Name="user_info_id" ColumnName="user_info_id" />
+          <ScalarProperty Name="user_info_code" ColumnName="user_info_code" />
+          <ScalarProperty Name="user_info_name" ColumnName="user_info_name" />
+          <ScalarProperty Name="cmnd" ColumnName="cmnd" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="role_info" ColumnName="role_info" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="warehouses">
+      <EntityTypeMapping TypeName="InventoryModel.warehouse">
+        <MappingFragment StoreEntitySet="warehouse">
+          <ScalarProperty Name="warehouse_id" ColumnName="warehouse_id" />
+          <ScalarProperty Name="warehouse_code" ColumnName="warehouse_code" />
+          <ScalarProperty Name="warehouse_name" ColumnName="warehouse_name" />
+          <ScalarProperty Name="warehouse_parent_id" ColumnName="warehouse_parent_id" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="create_user" ColumnName="create_user" />
+          <ScalarProperty Name="update_date" ColumnName="update_date" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

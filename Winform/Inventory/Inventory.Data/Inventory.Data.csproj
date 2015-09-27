@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DFB487E2-560A-4A39-B041-4030C47D8FFF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Inventory.Data</RootNamespace>
+    <AssemblyName>Inventory.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\category_item.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\company.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customer.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inventory.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inventory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\supplier.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\transaction_detail.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\transaction_master.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\transaction_type.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\unit.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_info.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\TransactionDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\ReportViewModel.cs" />
+    <Compile Include="Models\ViewModel\TransactionMasterViewModel.cs" />
+    <Compile Include="Models\warehouse.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\SqlDatabaseUtility.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="Views\ReportView.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Models\Inventory.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Inventory.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Inventory.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Inventory.edmx</DependentUpon>
+      <LastGenOutput>Inventory.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Inventory.edmx.diagram">
+      <DependentUpon>Inventory.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Inventory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Inventory.edmx</DependentUpon>
+      <LastGenOutput>Inventory.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Document\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
